@@ -30,8 +30,6 @@ namespace Demo.Presenation
                 case 4:
                     hoadon.SuaHD();
                     break;
-                
-
                 case 5:
                     Environment.Exit(0);
                     break;

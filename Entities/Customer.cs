@@ -4,76 +4,21 @@ using System.Text;
 
 namespace Demo.Entities
 {
-    class Customer 
+    class Customer : Person 
     {
-        private string name, address, numberphone;
-        private int id, age;
-
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                if (value >= 1)
-                    id = value;
-            }
-        }
-
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                if (value != "")
-                    name = value;
-            }
-        }
-        public string Address
-        {
-            get { return address; }
-            set
-            {
-                if (value != "")
-                    address = value;
-            }
-        }
-
-        public int Age
-        {
-            get { return age; }
-            set
-            {
-                if (value >= 1 && value < 100)
-                    age = value;
-            }
-        }
-        public string Numberphone
-        {
-            get { return numberphone; }
-            set
-            {
-                if (value != "")
-                    numberphone = value;
-            }
-        }
+        
 
         public Customer() { }
         public Customer(Customer cm)
         {
-            this.id = cm.id;
-            this.name = string.Copy(cm.name);
-            this.address = string.Copy(cm.address);
-            this.age = cm.age;
-            this.numberphone = cm.numberphone;
+            this.Id = cm.Id;
+            this.Name = string.Copy(cm.Name);
+            this.Address = string.Copy(cm.Address);
+            this.Age = cm.Age;
+            this.Numberphone = cm.Numberphone;
         }
-        public Customer(int id, string name, string address, int age, string numberphone)
-        {
-            this.id = id;
-            this.name = name;
-            this.address = address;
-            this.age = age;
-            this.numberphone = numberphone;
+        public Customer(int id, string name, string address, int age, string numberphone) : base(id, name, address, age, numberphone) { }
 
-        }
+
     }
 }

@@ -8,3 +8,5 @@ D:\Downloads\DA1_Vũ Thanh Hùng_12520069\obj\x86\Debug\DEMO_DA1.csproj.Assembly
 D:\Downloads\DA1_Vũ Thanh Hùng_12520069\obj\x86\Debug\DEMO_DA1.csproj.CoreCompileInputs.cache
 D:\Downloads\DA1_Vũ Thanh Hùng_12520069\obj\x86\Debug\Demo.exe
 D:\Downloads\DA1_Vũ Thanh Hùng_12520069\obj\x86\Debug\Demo.pdb
+D:\Downloads\DA1_Vũ Thanh Hùng_12520069\bin\Debug\Demo.exe
+D:\Downloads\DA1_Vũ Thanh Hùng_12520069\bin\Debug\Demo.pdb

@@ -66,6 +66,7 @@
     <Compile Include="DataAccessLayer\MobileDAL.cs" />
     <Compile Include="Entities\Brand.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="Entities\Person.cs" />
     <Compile Include="Presenation\FormBrand.cs" />
     <Compile Include="Presenation\FormCustomer.cs" />
     <Compile Include="Presenation\FormEmployee.cs" />

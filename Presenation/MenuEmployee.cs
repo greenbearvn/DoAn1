@@ -28,6 +28,9 @@ namespace Demo.Presenation
                     employee.XoaNV();
                     break;
                 case 4:
+                    employee.SuaNV();
+                    break;
+                case 5:
                     Environment.Exit(0);
                     break;
 

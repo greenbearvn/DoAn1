@@ -46,6 +46,7 @@ namespace Demo.Presenation
             Console.Write(tieudecuoi);
             return Console.CursorTop;
         }
+        
         public void Hien()
         {
             

@@ -14,9 +14,9 @@ namespace Demo.Presenation
         int HienNV(List<Employee> list, int x, int y, string tieudedau, string tieudecuoi, int n)
         {
 
-
             Console.WriteLine();
-
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine(tieudedau);
             Console.WriteLine("-----------------------------------------------------------------");
@@ -27,8 +27,8 @@ namespace Demo.Presenation
             Console.SetCursorPosition(x + 30, y); Console.Write("Tuoi");
             Console.SetCursorPosition(x + 35, y); Console.Write("So DT");
             Console.SetCursorPosition(x + 45, y); Console.Write("Luong co ban");
-            Console.SetCursorPosition(x + 55, y); Console.Write("He so luong");
-            Console.SetCursorPosition(x + 60, y); Console.Write("Phu Cap");
+            Console.SetCursorPosition(x + 60, y); Console.Write("He so luong");
+            Console.SetCursorPosition(x + 70, y); Console.Write("Phu Cap");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
             {
@@ -39,8 +39,8 @@ namespace Demo.Presenation
                 Console.SetCursorPosition(30, y); Console.Write(list[i].Age.ToString());
                 Console.SetCursorPosition(35, y); Console.Write(list[i].Numberphone);
                 Console.SetCursorPosition(45, y); Console.Write(list[i].Luongcoban.ToString());
-                Console.SetCursorPosition(55, y); Console.Write(list[i].Hesoluong.ToString());
-                Console.SetCursorPosition(60, y); Console.Write(list[i].Phucap.ToString());
+                Console.SetCursorPosition(60, y); Console.Write(list[i].Hesoluong.ToString());
+                Console.SetCursorPosition(70, y); Console.Write(list[i].Phucap.ToString());
                 Console.WriteLine();
                 if ((++d) == n) break;
             }
@@ -70,26 +70,26 @@ namespace Demo.Presenation
             {
                 IEmployeeBLL employee = new EmployeeBLL();
                 Console.Clear();
-                Console.WriteLine("-----------------------------------------------------------");
-                Console.WriteLine("||                NHAP THONG TIN NHAN VIEN               ||");
-                Console.WriteLine("||-------------------------------------------------------||");
-                Console.WriteLine("||                                                       ||");
-                Console.WriteLine("||TEN KH:                    Dia chi:                    ||");
-                Console.WriteLine("||                                                       ||");
-                Console.WriteLine("||Tuoi:                      So Dien Thoai:              ||");
-                Console.WriteLine("||                                                       ||");
-                Console.WriteLine("||Luong Co Ban:        He So Luong:         Phu cap:     ||");
-                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine("--------------------------------------------------------------");
+                Console.WriteLine("||                NHAP THONG TIN NHAN VIEN                   ||");
+                Console.WriteLine("||-----------------------------------------------------------||");
+                Console.WriteLine("||                                                           ||");
+                Console.WriteLine("||TEN KH:                    Dia chi:                        ||");
+                Console.WriteLine("||                                                           ||");
+                Console.WriteLine("||Tuoi:                      So Dien Thoai:                  ||");
+                Console.WriteLine("||                                                           ||");
+                Console.WriteLine("||Luong Co Ban:        He So Luong:         Phu cap:         ||");
+                Console.WriteLine("--------------------------------------------------------------");
                 int x = 0, y = 8;
                 int v = HienNV(employee.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Esc de thoat, Enter de luu!", 4);
                 Employee cm = new Employee();
                 Console.SetCursorPosition(7, 4); cm.Name = Console.ReadLine();
                 Console.SetCursorPosition(37, 4); cm.Address = Console.ReadLine();
-                Console.SetCursorPosition(10, 6); cm.Age = int.Parse(Console.ReadLine());
-                Console.SetCursorPosition(28, 6); cm.Numberphone = Console.ReadLine();
-                Console.SetCursorPosition(15, 7); cm.Luongcoban = double.Parse(Console.ReadLine());
-                Console.SetCursorPosition(35, 7); cm.Hesoluong = double.Parse(Console.ReadLine());
-                Console.SetCursorPosition(49, 7); cm.Phucap = double.Parse(Console.ReadLine());
+                Console.SetCursorPosition(8, 6); cm.Age = int.Parse(Console.ReadLine());
+                Console.SetCursorPosition(45, 6); cm.Numberphone = Console.ReadLine();
+                Console.SetCursorPosition(17, 8); cm.Luongcoban = double.Parse(Console.ReadLine());
+                Console.SetCursorPosition(37, 8); cm.Hesoluong = double.Parse(Console.ReadLine());
+                Console.SetCursorPosition(53, 8); cm.Phucap = double.Parse(Console.ReadLine());
                 Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
                 if (kt.Key == ConsoleKey.Escape) return;

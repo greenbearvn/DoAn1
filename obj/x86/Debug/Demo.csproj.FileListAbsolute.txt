@@ -1,0 +1,68 @@
+F:\Nguyen Huu Dong\Van ban can XL\OLP\Dap an\DemoDoan1\Demo\Demo\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Nguyen Huu Dong\Van ban can XL\OLP\Dap an\DemoDoan1\Demo\Demo\bin\Debug\Demo.exe.config
+F:\Nguyen Huu Dong\Van ban can XL\OLP\Dap an\DemoDoan1\Demo\Demo\bin\Debug\Demo.exe
+F:\Nguyen Huu Dong\Van ban can XL\OLP\Dap an\DemoDoan1\Demo\Demo\bin\Debug\Demo.pdb
+F:\Nguyen Huu Dong\Van ban can XL\OLP\Dap an\DemoDoan1\Demo\Demo\obj\x86\Debug\Demo.exe
+F:\Nguyen Huu Dong\Van ban can XL\OLP\Dap an\DemoDoan1\Demo\Demo\obj\x86\Debug\Demo.pdb
+E:\DemoDoAn1\bin\Debug\Demo.exe.config
+E:\DemoDoAn1\obj\x86\Debug\Demo.exe
+E:\DemoDoAn1\obj\x86\Debug\Demo.pdb
+E:\DemoDoAn1\bin\Debug\Demo.exe
+E:\DemoDoAn1\bin\Debug\Demo.pdb
+E:\DemoDoAn1\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Du lieu\Mo hinh 3 lop\DemoDoAn1\bin\Debug\Demo.exe.config
+E:\Du lieu\Mo hinh 3 lop\DemoDoAn1\obj\x86\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\DemoDoAn1\obj\x86\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\DemoDoAn1\bin\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\DemoDoAn1\bin\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\DemoDoAn1\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1\bin\Debug\Demo.exe.config
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1\obj\x86\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1\obj\x86\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1\bin\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1\bin\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1 -  V1\bin\Debug\Demo.exe.config
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1 -  V1\obj\x86\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1 -  V1\obj\x86\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1 -  V1\bin\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1 -  V1\bin\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1 -  V1\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1-L1\bin\Debug\Demo.exe.config
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1-L1\obj\x86\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1-L1\obj\x86\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1-L1\bin\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1-L1\bin\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\Bai tap ap dung\DemoDoAn1-L1\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Du lieu\Mo hinh 3 lop\Seminar\DemoDoAn1-L1\bin\Debug\Demo.exe.config
+E:\Du lieu\Mo hinh 3 lop\Seminar\DemoDoAn1-L1\obj\x86\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\Seminar\DemoDoAn1-L1\obj\x86\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\Seminar\DemoDoAn1-L1\bin\Debug\Demo.exe
+E:\Du lieu\Mo hinh 3 lop\Seminar\DemoDoAn1-L1\bin\Debug\Demo.pdb
+E:\Du lieu\Mo hinh 3 lop\Seminar\DemoDoAn1-L1\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Public folder\Google Drive\Public Share\SEMINAR\MO HINH 3 LOP\DemoDoAn1-L1\obj\x86\Debug\Demo.exe
+E:\Public folder\Google Drive\Public Share\SEMINAR\MO HINH 3 LOP\DemoDoAn1-L1\obj\x86\Debug\Demo.pdb
+E:\Public folder\Google Drive\Public Share\SEMINAR\MO HINH 3 LOP\DemoDoAn1-L1\bin\Debug\Demo.exe
+E:\Public folder\Google Drive\Public Share\SEMINAR\MO HINH 3 LOP\DemoDoAn1-L1\bin\Debug\Demo.pdb
+D:\Download\MO HINH 3 LOP\DemoDoAn1-L1\obj\x86\Debug\Demo.exe
+D:\Download\MO HINH 3 LOP\DemoDoAn1-L1\obj\x86\Debug\Demo.pdb
+D:\Download\MO HINH 3 LOP\DemoDoAn1-L1\bin\Debug\Demo.exe
+D:\Download\MO HINH 3 LOP\DemoDoAn1-L1\bin\Debug\Demo.pdb
+F:\Tai lieu giang day\Huong dan do an\Do an 1\MO HINH 3 LOP\Quan ly diem hoc sinh\DemoDoAn1-L1\obj\x86\Debug\Demo.exe
+F:\Tai lieu giang day\Huong dan do an\Do an 1\MO HINH 3 LOP\Quan ly diem hoc sinh\DemoDoAn1-L1\obj\x86\Debug\Demo.pdb
+F:\Tai lieu giang day\Huong dan do an\Do an 1\MO HINH 3 LOP\Quan ly diem hoc sinh\DemoDoAn1-L1\bin\Debug\Demo.exe
+F:\Tai lieu giang day\Huong dan do an\Do an 1\MO HINH 3 LOP\Quan ly diem hoc sinh\DemoDoAn1-L1\bin\Debug\Demo.pdb
+F:\Tai lieu giang day\Huong dan do an\Do an 1\MO HINH 3 LOP\Quan ly diem hoc sinh\DemoDoAn1-L1\obj\x86\Debug\Demo.csprojResolveAssemblyReference.cache
+F:\Tai lieu giang day\Huong dan do an\Do an 1\Seminar\Demo\Demo_M1\obj\x86\Debug\Demo.exe
+F:\Tai lieu giang day\Huong dan do an\Do an 1\Seminar\Demo\Demo_M1\obj\x86\Debug\Demo.pdb
+F:\Tai lieu giang day\Huong dan do an\Do an 1\Seminar\MO HINH 3 Layer\Demo\Demo_M1\obj\x86\Debug\Demo.exe
+F:\Tai lieu giang day\Huong dan do an\Do an 1\Seminar\MO HINH 3 Layer\Demo\Demo_M1\obj\x86\Debug\Demo.pdb
+F:\Tai lieu giang day\Huong dan do an\Do an 1\Seminar\MO HINH 3 Layer\Demo\Demo_M1\bin\Debug\Demo.exe
+F:\Tai lieu giang day\Huong dan do an\Do an 1\Seminar\MO HINH 3 Layer\Demo\Demo_M1\bin\Debug\Demo.pdb
+F:\Tai lieu giang day\Huong dan do an\Do an 1\Seminar\MO HINH 3 Layer\Demo\Demo_M1\obj\x86\Debug\Demo.csprojResolveAssemblyReference.cache
+D:\Downloads\Demo(Don gian)\bin\Debug\Demo.exe
+D:\Downloads\Demo(Don gian)\bin\Debug\Demo.pdb
+D:\Downloads\Demo(Don gian)\obj\x86\Debug\Demo.csproj.AssemblyReference.cache
+D:\Downloads\Demo(Don gian)\obj\x86\Debug\Demo.csproj.CoreCompileInputs.cache
+D:\Downloads\Demo(Don gian)\obj\x86\Debug\Demo.exe
+D:\Downloads\Demo(Don gian)\obj\x86\Debug\Demo.pdb

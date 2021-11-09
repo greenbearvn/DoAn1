@@ -1,0 +1,6 @@
+D:\Downloads\Demo(Don gian)\bin\Debug\Demo.exe
+D:\Downloads\Demo(Don gian)\bin\Debug\Demo.pdb
+D:\Downloads\Demo(Don gian)\obj\x86\Debug\DEMO_DA1.csproj.AssemblyReference.cache
+D:\Downloads\Demo(Don gian)\obj\x86\Debug\DEMO_DA1.csproj.CoreCompileInputs.cache
+D:\Downloads\Demo(Don gian)\obj\x86\Debug\Demo.exe
+D:\Downloads\Demo(Don gian)\obj\x86\Debug\Demo.pdb

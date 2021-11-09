@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42668BE6-5D75-41FB-9A42-A1CF806C99E8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Components\BrandBLL.cs" />
+    <Compile Include="Business\Components\CustomerBLL.cs" />
+    <Compile Include="Business\Components\EmployeeBLL.cs" />
+    <Compile Include="Business\Components\HoaDonBLL.cs" />
+    <Compile Include="Business\Components\MobileBLL.cs" />
+    <Compile Include="Business\Service Interface\IBrandBLL.cs" />
+    <Compile Include="Business\Service Interface\ICustomerBLL.cs" />
+    <Compile Include="Business\Service Interface\IEmployeeBLL.cs" />
+    <Compile Include="Business\Service Interface\IHoaDonBLL.cs" />
+    <Compile Include="DataAccessLayer\BrandDAL.cs" />
+    <Compile Include="DataAccessLayer\CustomerDAL.cs" />
+    <Compile Include="DataAccessLayer\EmployeeDAL.cs" />
+    <Compile Include="DataAccessLayer\HoaDonDAL.cs" />
+    <Compile Include="DataAccessLayer\Service Interface\IBrandDAL.cs" />
+    <Compile Include="DataAccessLayer\Service Interface\ICustomerDAL.cs" />
+    <Compile Include="DataAccessLayer\Service Interface\IEmployeeDAL.cs" />
+    <Compile Include="DataAccessLayer\Service Interface\IHoaDonDAL.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\HoaDon.cs" />
+    <Compile Include="Entities\Mobile.cs" />
+    <Compile Include="DataAccessLayer\Service Interface\IMobileDAL.cs" />
+    <Compile Include="Business\Service Interface\IMobileBLL.cs" />
+    <Compile Include="DataAccessLayer\MobileDAL.cs" />
+    <Compile Include="Entities\Brand.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Presenation\FormBrand.cs" />
+    <Compile Include="Presenation\FormCustomer.cs" />
+    <Compile Include="Presenation\FormEmployee.cs" />
+    <Compile Include="Presenation\FormHoaDon.cs" />
+    <Compile Include="Presenation\FormMobile.cs" />
+    <Compile Include="Presenation\MenuBrand.cs" />
+    <Compile Include="Presenation\MenuCustomer.cs" />
+    <Compile Include="Presenation\MenuEmployee.cs" />
+    <Compile Include="Presenation\MenuHoaDon.cs" />
+    <Compile Include="Presenation\MenuQL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\CongCu.cs" />
+    <Compile Include="Utility\Menu.cs" />
+    <Compile Include="Presenation\MenuMobile.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -15,32 +15,30 @@ namespace Demo.Presenation
         {
 
             Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
+            
             Console.WriteLine(tieudedau);
             Console.WriteLine("-----------------------------------------------------------------");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MaKH");
             Console.SetCursorPosition(x + 8, y); Console.Write("TenKH");
-            Console.SetCursorPosition(x + 20, y); Console.Write("Dia Chi");
-            Console.SetCursorPosition(x + 30, y); Console.Write("Tuoi");
-            Console.SetCursorPosition(x + 35, y); Console.Write("So DT");
-            Console.SetCursorPosition(x + 45, y); Console.Write("Luong co ban");
-            Console.SetCursorPosition(x + 60, y); Console.Write("He so luong");
-            Console.SetCursorPosition(x + 70, y); Console.Write("Phu Cap");
+            Console.SetCursorPosition(x + 25, y); Console.Write("Dia Chi");
+            Console.SetCursorPosition(x + 40, y); Console.Write("Tuoi");
+            Console.SetCursorPosition(x + 55, y); Console.Write("So DT");
+            Console.SetCursorPosition(x + 70, y); Console.Write("Luong co ban");
+            Console.SetCursorPosition(x + 85, y); Console.Write("He so luong");
+            Console.SetCursorPosition(x + 100, y); Console.Write("Phu Cap");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
             {
                 y = y + 1;
                 Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
                 Console.SetCursorPosition(8, y); Console.Write(list[i].Name);
-                Console.SetCursorPosition(20, y); Console.Write(list[i].Address);
-                Console.SetCursorPosition(30, y); Console.Write(list[i].Age.ToString());
-                Console.SetCursorPosition(35, y); Console.Write(list[i].Numberphone);
-                Console.SetCursorPosition(45, y); Console.Write(list[i].Luongcoban.ToString());
-                Console.SetCursorPosition(60, y); Console.Write(list[i].Hesoluong.ToString());
-                Console.SetCursorPosition(70, y); Console.Write(list[i].Phucap.ToString());
+                Console.SetCursorPosition(25, y); Console.Write(list[i].Address);
+                Console.SetCursorPosition(40, y); Console.Write(list[i].Age.ToString());
+                Console.SetCursorPosition(55, y); Console.Write(list[i].Numberphone);
+                Console.SetCursorPosition(70, y); Console.Write(list[i].Luongcoban.ToString());
+                Console.SetCursorPosition(85, y); Console.Write(list[i].Hesoluong.ToString());
+                Console.SetCursorPosition(100, y); Console.Write(list[i].Phucap.ToString());
                 Console.WriteLine();
                 if ((++d) == n) break;
             }
@@ -64,8 +62,9 @@ namespace Demo.Presenation
         }
 
 
-        public void NhapNV()
+        public bool NhapNV()
         {
+            bool exit = false;
             do
             {
                 IEmployeeBLL employee = new EmployeeBLL();
@@ -78,21 +77,48 @@ namespace Demo.Presenation
                 Console.WriteLine("||                                                           ||");
                 Console.WriteLine("||Tuoi:                      So Dien Thoai:                  ||");
                 Console.WriteLine("||                                                           ||");
-                Console.WriteLine("||Luong Co Ban:        He So Luong:         Phu cap:         ||");
+                Console.WriteLine("||Luong Co Ban:          He So Luong:       Phu cap:         ||");
                 Console.WriteLine("--------------------------------------------------------------");
                 int x = 0, y = 8;
                 int v = HienNV(employee.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Esc de thoat, Enter de luu!", 4);
                 Employee cm = new Employee();
-                Console.SetCursorPosition(7, 4); cm.Name = Console.ReadLine();
-                Console.SetCursorPosition(37, 4); cm.Address = Console.ReadLine();
-                Console.SetCursorPosition(8, 6); cm.Age = int.Parse(Console.ReadLine());
-                Console.SetCursorPosition(45, 6); cm.Numberphone = Console.ReadLine();
-                Console.SetCursorPosition(17, 8); cm.Luongcoban = double.Parse(Console.ReadLine());
-                Console.SetCursorPosition(37, 8); cm.Hesoluong = double.Parse(Console.ReadLine());
-                Console.SetCursorPosition(53, 8); cm.Phucap = double.Parse(Console.ReadLine());
-                Console.SetCursorPosition(32, v);
+                Console.SetCursorPosition(9, 4);
+                do
+                {
+                    cm.Name = Console.ReadLine();
+                } while (cm.Name == "");
+                Console.SetCursorPosition(37, 4);
+                do
+                {
+                    cm.Address = Console.ReadLine();
+                } while (cm.Address == "");
+                Console.SetCursorPosition(8, 6);
+                do
+                {
+                    cm.Age = int.Parse(Console.ReadLine());
+                } while (cm.Age < 18 && cm.Age > 100);
+                Console.SetCursorPosition(45, 6);
+                do
+                {
+                    cm.Numberphone = Console.ReadLine();
+                } while (cm.Numberphone == "");
+                Console.SetCursorPosition(17, 8);
+                do {
+                    cm.Luongcoban = double.Parse(Console.ReadLine()); 
+                } while (cm.Luongcoban < 0);
+                Console.SetCursorPosition(40, 8);
+                do
+                {
+                    cm.Hesoluong = double.Parse(Console.ReadLine());
+                } while (cm.Hesoluong < 0);
+                Console.SetCursorPosition(53, 8);
+                do
+                {
+                    cm.Phucap = double.Parse(Console.ReadLine());
+                } while (cm.Phucap < 0);
+                 Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
-                if (kt.Key == ConsoleKey.Escape) return;
+                if (kt.Key == ConsoleKey.Escape) return exit;
                 else if (kt.Key == ConsoleKey.Enter)
                     employee.Add(cm);
             } while (true);
@@ -137,16 +163,16 @@ namespace Demo.Presenation
 
             //Hiên thị mẫu nhập
             Console.Clear();
-            Console.WriteLine("----------------------------------------------------------------------------------");
-            Console.WriteLine("||                       NHAP THONG TIN NHAN VIEN                                ||");
-            Console.WriteLine("||---------------------------------------------------------------                ||");
-            Console.WriteLine("||Nhap ID:                                                                       ||");
-            Console.WriteLine("||TEN KH:                    Dia chi:                                            ||");
-            Console.WriteLine("||                                                                               ||");
-            Console.WriteLine("||Tuoi:                      So Dien Thoai:                                      ||");
-            Console.WriteLine("||                                                                               ||");
-            Console.WriteLine("||Luong Co Ban:               He So Luong:              Phu cap:                 ||");
-            Console.WriteLine("---------------------------------------------------------------------------------");   
+            Console.WriteLine("---------------------------------------------------------------------------------------------");
+            Console.WriteLine("||                             NHAP THONG TIN NHAN VIEN                                      ||");
+            Console.WriteLine("||-------------------------------------------------------------------------------------------||");
+            Console.WriteLine("||Nhap ID:                                                                                   ||");
+            Console.WriteLine("||TEN KH:                    Dia chi:                                                        ||");
+            Console.WriteLine("||                                                                                           ||");
+            Console.WriteLine("||Tuoi:                      So Dien Thoai:                                                  ||");
+            Console.WriteLine("||                                                                                           ||");
+            Console.WriteLine("||Luong Co Ban:                      He So Luong:                    Phu cap:                ||");
+            Console.WriteLine("----------------------------------------------------------------------------------------------");   
             int v = Console.CursorTop;
             
             IEmployeeBLL employee = new EmployeeBLL();
@@ -159,17 +185,17 @@ namespace Demo.Presenation
                 Console.SetCursorPosition(37, 3); Console.Write(em.Address);
                 Console.SetCursorPosition(10, 5); Console.Write(em.Age);
                 Console.SetCursorPosition(28, 5); Console.Write(em.Numberphone);
-                Console.SetCursorPosition(15, 7); Console.Write(em.Luongcoban);
-                Console.SetCursorPosition(35, 7); Console.Write(em.Hesoluong);
-                Console.SetCursorPosition(49, 7); Console.Write(em.Phucap);
+                Console.SetCursorPosition(16, 7); Console.Write(em.Luongcoban);
+                Console.SetCursorPosition(50, 7); Console.Write(em.Hesoluong);
+                Console.SetCursorPosition(78, 7); Console.Write(em.Phucap);
                 //Nhập lại thông tin mới
                 Console.SetCursorPosition(10, 3); try { Name = Console.ReadLine(); } catch { }
                 Console.SetCursorPosition(48, 3); try { Address = Console.ReadLine(); } catch { }
                 Console.SetCursorPosition(15, 5); try { Age = int.Parse(Console.ReadLine()); } catch { }
                 Console.SetCursorPosition(35, 5); try { Numberphone = Console.ReadLine(); } catch { }
-                Console.SetCursorPosition(20, 7); try { Luongcoban = double.Parse(Console.ReadLine()); } catch { }
-                Console.SetCursorPosition(40, 7); try { Hesoluong = double.Parse(Console.ReadLine()); } catch { }
-                Console.SetCursorPosition(55, 7); try { Phucap = double.Parse(Console.ReadLine()); } catch { }
+                Console.SetCursorPosition(21, 7); try { Luongcoban = double.Parse(Console.ReadLine()); } catch { }
+                Console.SetCursorPosition(55, 7); try { Hesoluong = double.Parse(Console.ReadLine()); } catch { }
+                Console.SetCursorPosition(85, 7); try { Phucap = double.Parse(Console.ReadLine()); } catch { }
                 Console.SetCursorPosition(0, v);//Đưa con trỏ tới vị trí cuối cùng của danh sách được hiện thị ở trên dựa vào v
                 Console.Write("Nhan Esc de thoat, Enter de luu!");
                 //Nếu có dữ liệu có thay đổi thị cập nhật lại

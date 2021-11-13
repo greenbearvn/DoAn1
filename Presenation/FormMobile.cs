@@ -96,8 +96,9 @@ namespace Demo.Presenation
             } while (true);
         }
 
-        public void NhapMB()
-        { 
+        public bool NhapMB()
+        {
+            bool exit = false;
             do
             {
                 IMobileBLL mobile = new MobileBLL(); 
@@ -113,15 +114,39 @@ namespace Demo.Presenation
                 int x = 0, y = 8;
                 int v = HienMB(mobile.GetAllData(),x, y, "                 DANH SACH DA NHAP                      ", "Nhan Space de thoat, Enter de luu!", 6);
                 Mobile mb = new Mobile();
-                Console.SetCursorPosition(10, 4); mb.TenDT = Console.ReadLine();
-                Console.SetCursorPosition(43, 4); mb.NhaCC = Console.ReadLine();
-                Console.SetCursorPosition(8, 6); mb.Type = Console.ReadLine();
-                Console.SetCursorPosition(22, 6); mb.Price = double.Parse(Console.ReadLine());
-                Console.SetCursorPosition(37, 6); mb.Sale = int.Parse(Console.ReadLine());
-                Console.SetCursorPosition(52, 6); mb.Quantum = int.Parse(Console.ReadLine());
+                Console.SetCursorPosition(10, 4);
+                do
+                {
+                    mb.TenDT = Console.ReadLine();
+                } while (mb.TenDT == "");
+                Console.SetCursorPosition(43, 4);
+                do
+                {
+                    mb.NhaCC = Console.ReadLine();
+                } while (mb.NhaCC == "");
+                Console.SetCursorPosition(8, 6);
+                do
+                {
+                    mb.Type = Console.ReadLine();
+                } while (mb.Type == "");
+                Console.SetCursorPosition(22, 6);
+                do
+                {
+                    mb.Price = double.Parse(Console.ReadLine());
+                } while (mb.Price < 0 );
+                Console.SetCursorPosition(37, 6);
+                do
+                {
+                    mb.Sale = int.Parse(Console.ReadLine());
+                } while (mb.Sale < 0);
+                Console.SetCursorPosition(52, 6);
+                do
+                {
+                    mb.Quantum = int.Parse(Console.ReadLine());
+                } while (mb.Quantum < 0);
                 Console.SetCursorPosition(32, v);                
                 ConsoleKeyInfo kt = Console.ReadKey();
-                if (kt.Key == ConsoleKey.Backspace) return;
+                if (kt.Key == ConsoleKey.Escape) return exit;
                 else if (kt.Key == ConsoleKey.Enter)
                     mobile.Add(mb);
             } while (true);
@@ -133,8 +158,8 @@ namespace Demo.Presenation
             {
                 Console.Clear();
                 IMobileBLL mobile = new MobileBLL();
-                HienMB(mobile.GetAllData(),0, 0, "                 DANH SACH DIEN THOAI TRONG KHO                  ", "Nhap MADT can xoa, thoat nhap 69:   ", 20);                
-                int id = int.Parse("0"+Console.ReadLine());
+                HienMB(mobile.GetAllData(),0, 0, "                 DANH SACH DIEN THOAI TRONG KHO                  ", "Nhap MADT can xoa, thoat nhap 69:   ", 20);
+                int id = int.Parse("0" + Console.ReadLine());
                 if (id == 69) return;
                 else mobile.Delete(id);
             } while (true);
@@ -149,7 +174,10 @@ namespace Demo.Presenation
                 IMobileBLL mobile = new MobileBLL();
                 List<Mobile> list = mobile.Timdt(new Mobile(0, tenDT, null, null, 0, 0,0));
                 HienMB(list,0, 0, "                 DANH SACH DIEN THOAI                      ", "Nhap Ho va Ten can tim, Nhan vao Enter de thoat!", 30);
-                tenDT = Console.ReadLine();
+                do
+                {
+                    tenDT = Console.ReadLine();
+                } while (tenDT == "");
                 if (tenDT == "") return; 
             } while (true);
         }
@@ -187,12 +215,42 @@ namespace Demo.Presenation
                 Console.SetCursorPosition(60, 6); Console.Write(mb.Sale);
                 Console.SetCursorPosition(80, 6); Console.Write(mb.Quantum);
                 //Nhập lại thông tin mới
-                Console.SetCursorPosition(20, 4); try { TenDT = Console.ReadLine(); } catch { }
-                Console.SetCursorPosition(62, 4); try { NhaCC = Console.ReadLine(); } catch { }
-                Console.SetCursorPosition(15, 6); try { Type = Console.ReadLine(); } catch { }
-                Console.SetCursorPosition(41, 6); try { Price = double.Parse(Console.ReadLine()); } catch { }
-                Console.SetCursorPosition(63, 6); try { Sale = int.Parse(Console.ReadLine()); } catch { }
-                Console.SetCursorPosition(84, 6); try { Quantum = int.Parse(Console.ReadLine()); } catch { }
+                Console.SetCursorPosition(20, 4); try {
+                    do
+                    {
+                        mb.TenDT = Console.ReadLine();
+                    } while (mb.TenDT == "");
+                } catch { }
+                Console.SetCursorPosition(62, 4); try {
+                    do
+                    {
+                        mb.NhaCC = Console.ReadLine();
+                    } while (mb.NhaCC == "");
+                } catch { }
+                Console.SetCursorPosition(15, 6); try {
+                    do
+                    {
+                        mb.Type = Console.ReadLine();
+                    } while (mb.Type == "");
+                } catch { }
+                Console.SetCursorPosition(41, 6); try {
+                    do
+                    {
+                        mb.Price = double.Parse(Console.ReadLine());
+                    } while (mb.Price < 0);
+                } catch { }
+                Console.SetCursorPosition(63, 6); try {
+                    do
+                    {
+                        mb.Sale = int.Parse(Console.ReadLine());
+                    } while (mb.Sale < 0);
+                } catch { }
+                Console.SetCursorPosition(84, 6); try {
+                    do
+                    {
+                        mb.Quantum = int.Parse(Console.ReadLine());
+                    } while (mb.Quantum < 0);
+                } catch { }
                 Console.SetCursorPosition(0, v);//Đưa con trỏ tới vị trí cuối cùng của danh sách được hiện thị ở trên dựa vào v
                 Console.Write("Nhan Esc de thoat, Enter de luu!");
                 //Nếu có dữ liệu có thay đổi thị cập nhật lại

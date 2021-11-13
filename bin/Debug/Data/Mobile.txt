@@ -1,2 +1,6 @@
 1#1#Apple#16#2000#0#2
 3#ss 3#Xiaomi#126#2000#7#0
+
+4#Cc#Xiaomi#128#500000#4#9
+5#Hay Qua#Apple#256#1000#7#3
+6#Galaxy Fold 3#Samsung#8/512#45000000#2#9

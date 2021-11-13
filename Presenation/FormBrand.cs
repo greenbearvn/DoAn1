@@ -53,8 +53,9 @@ namespace Demo.Presenation
         }
 
         
-        public void NhapNCC()
+        public bool NhapNCC()
         {
+            bool exit = false;
             do
             {
                 IBrandBLL brand = new BrandBLL();
@@ -63,18 +64,26 @@ namespace Demo.Presenation
                 Console.WriteLine("||                NHAP THONG TIN NHA CUNG CAP                                    ||");
                 Console.WriteLine("||-------------------------------------------------------------------------------||");
                 Console.WriteLine("||                                                                               ||");
-                Console.WriteLine("||TEN nha cung cap:                              Nha cung cap:                   ||");
+                Console.WriteLine("||TEN nha cung cap:                              Dia chi:                   ||");
                 Console.WriteLine("||                                                                               ||");
                 Console.WriteLine("  -------------------------------------------------------------------------------");
                 int x = 0, y = 8;
                 int v = HienNCC(brand.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Space de thoat, Enter de luu!", 6);
                 Brand br = new Brand();
-                Console.SetCursorPosition(21, 4); br.Name = Console.ReadLine();
-                Console.SetCursorPosition(80, 4); br.Diachi = Console.ReadLine();
+                Console.SetCursorPosition(21, 4);
+                do
+                {
+                    br.Name = Console.ReadLine();
+                } while (br.Name == "");
+                Console.SetCursorPosition(65, 4);
+                do
+                {
+                    br.Diachi = Console.ReadLine();
+                } while (br.Diachi == "");
 
                 Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
-                if (kt.Key == ConsoleKey.Backspace) return;
+                if (kt.Key == ConsoleKey.Backspace) return exit;
                 else if (kt.Key == ConsoleKey.Enter)
                     mobile.Add(br);
             } while (true);

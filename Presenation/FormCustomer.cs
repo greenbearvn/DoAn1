@@ -9,7 +9,7 @@ namespace Demo.Presenation
 {
     class FormCustomer
     {
-        private ICustomerBLL mobile = new CustomerBLL();
+        private ICustomerBLL customer = new CustomerBLL();
 
         int HienKH(List<Customer> list, int x, int y, string tieudedau, string tieudecuoi, int n)
         {
@@ -23,18 +23,18 @@ namespace Demo.Presenation
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MaKH");
             Console.SetCursorPosition(x + 8, y); Console.Write("TenKH");
-            Console.SetCursorPosition(x + 10, y); Console.Write("Dia Chi");
-            Console.SetCursorPosition(x + 12, y); Console.Write("Tuoi");
-            Console.SetCursorPosition(x + 24, y); Console.Write("So DT");
+            Console.SetCursorPosition(x + 20, y); Console.Write("Dia Chi");
+            Console.SetCursorPosition(x + 30, y); Console.Write("Tuoi");
+            Console.SetCursorPosition(x + 50, y); Console.Write("So DT");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
             {
                 y = y + 1;
                 Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
                 Console.SetCursorPosition(8, y); Console.Write(list[i].Name);
-                Console.SetCursorPosition(10, y); Console.Write(list[i].Address);
-                Console.SetCursorPosition(12, y); Console.Write(list[i].Age.ToString());
-                Console.SetCursorPosition(24, y); Console.Write(list[i].Numberphone);
+                Console.SetCursorPosition(20, y); Console.Write(list[i].Address);
+                Console.SetCursorPosition(30, y); Console.Write(list[i].Age.ToString());
+                Console.SetCursorPosition(50, y); Console.Write(list[i].Numberphone);
                 Console.WriteLine();
                 if ((++d) == n) break;
             }
@@ -58,8 +58,9 @@ namespace Demo.Presenation
         }
 
 
-        public void NhapHK()
+        public bool NhapHK()
         {
+            bool exit = false;
             do
             {
                 ICustomerBLL customer = new CustomerBLL();
@@ -70,18 +71,34 @@ namespace Demo.Presenation
                 Console.WriteLine("||                                                       ||");
                 Console.WriteLine("||TEN KH:                    Dia chi:                    ||");
                 Console.WriteLine("||                                                       ||");
-                Console.WriteLine("||Tuoi:                      So Dien Thoai:              ||");
+                Console.WriteLine("||Tuoi:                   So Dien Thoai:                 ||");
                 Console.WriteLine("-----------------------------------------------------------");
                 int x = 0, y = 8;
                 int v = HienKH(customer.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Esc de thoat, Enter de luu!", 4);
                 Customer cm = new Customer();
-                Console.SetCursorPosition(10, 4); cm.Name = Console.ReadLine();
-                Console.SetCursorPosition(37, 4); cm.Address = Console.ReadLine();
-                Console.SetCursorPosition(10, 6); cm.Age = int.Parse(Console.ReadLine());
-                Console.SetCursorPosition(44, 6); cm.Numberphone = Console.ReadLine();
+                Console.SetCursorPosition(10, 4);
+                do
+                {
+                    cm.Name = Console.ReadLine();
+                } while (cm.Name == "");
+                Console.SetCursorPosition(37, 4);
+                do
+                {
+                    cm.Address = Console.ReadLine();
+                } while (cm.Address == "");
+                Console.SetCursorPosition(10, 6);
+                do
+                {
+                    cm.Age = int.Parse(Console.ReadLine());
+                } while (cm.Age < 18 && cm.Age > 100);
+                Console.SetCursorPosition(44, 6);
+                do
+                {
+                    cm.Numberphone = Console.ReadLine();
+                } while (cm.Numberphone == "");
                 Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
-                if (kt.Key == ConsoleKey.Escape) return;
+                if (kt.Key == ConsoleKey.Escape) return exit;
                 else if (kt.Key == ConsoleKey.Enter)
                     customer.Add(cm);
             } while (true);
@@ -122,14 +139,14 @@ namespace Demo.Presenation
             
            
             Console.Clear();
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine("||                NHAP THONG TIN KHACH HANG              ||");
-            Console.WriteLine("||-------------------------------------------------------||");
-            Console.WriteLine("||Nhap ID:                                               ||");
-            Console.WriteLine("||TEN KH:                    Dia chi:                    ||");
-            Console.WriteLine("||                                                       ||");
-            Console.WriteLine("||Tuoi:                      So Dien Thoai:              ||");
-            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("------------------------------------------------------------------");
+            Console.WriteLine("||                NHAP THONG TIN KHACH HANG                      ||");
+            Console.WriteLine("||---------------------------------------------------------------||");
+            Console.WriteLine("||Nhap ID:                                                       ||");
+            Console.WriteLine("||TEN KH:                    Dia chi:                            ||");
+            Console.WriteLine("||                                                               ||");
+            Console.WriteLine("||Tuoi:            So Dien Thoai:                                ||");
+            Console.WriteLine("------------------------------------------------------------------");
             int v = Console.CursorTop;
             
             ICustomerBLL customer = new CustomerBLL();
@@ -140,14 +157,14 @@ namespace Demo.Presenation
                 
                 Console.SetCursorPosition(10, 3); Console.Write(cm.Name);
                 Console.SetCursorPosition(37, 3); Console.Write(cm.Address);
-                Console.SetCursorPosition(10, 5); Console.Write(cm.Age);
-                Console.SetCursorPosition(44, 5); Console.Write(cm.Numberphone);
+                Console.SetCursorPosition(8, 5); Console.Write(cm.Age);
+                Console.SetCursorPosition(34, 5); Console.Write(cm.Numberphone);
 
                 //Nhập lại thông tin mới
                 Console.SetCursorPosition(15, 3); try { Name = Console.ReadLine(); } catch { }
                 Console.SetCursorPosition(46, 3); try { Address = Console.ReadLine(); } catch { }
-                Console.SetCursorPosition(15, 5); try { Age = int.Parse(Console.ReadLine()); } catch { }
-                Console.SetCursorPosition(47, 5); try { Numberphone = Console.ReadLine(); } catch { }
+                Console.SetCursorPosition(11, 5); try { Age = int.Parse(Console.ReadLine()); } catch { }
+                Console.SetCursorPosition(45, 5); try { Numberphone = Console.ReadLine(); } catch { }
                 Console.SetCursorPosition(0, v);//Đưa con trỏ tới vị trí cuối cùng của danh sách được hiện thị ở trên dựa vào v
                 Console.Write("Nhan Esc de thoat, Enter de luu!");
                 //Nếu có dữ liệu có thay đổi thị cập nhật lại

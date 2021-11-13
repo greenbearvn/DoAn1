@@ -64,7 +64,7 @@ namespace Demo.Entities
             this.name = name;
             this.address = address;
             this.age = age;
-            
+            this.numberphone = numberphone;
 
         }
     }

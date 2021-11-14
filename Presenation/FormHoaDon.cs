@@ -13,8 +13,10 @@ namespace Demo.Presenation
         
         int HienHD(List<HoaDon> list, int x, int y, string tieudedau, string tieudecuoi, int n)
         {
-            
-           
+
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             Console.WriteLine();
             
             Console.WriteLine();
@@ -22,8 +24,8 @@ namespace Demo.Presenation
             Console.WriteLine("-----------------------------------------------------------------");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MaHD");
-            Console.SetCursorPosition(x + 8, y); Console.Write("Ten DT");
-            Console.SetCursorPosition(x + 20 , y); Console.Write("Ho Ten KH");
+            Console.SetCursorPosition(x + 6, y); Console.Write("Ten DT");
+            Console.SetCursorPosition(x + 22 , y); Console.Write("Ho Ten KH");
             Console.SetCursorPosition(x + 35 , y); Console.Write("Ngay Dat");
             Console.SetCursorPosition(x + 50 , y); Console.Write("GIA");
             Console.SetCursorPosition(x + 60 , y); Console.Write("So Luong");
@@ -34,8 +36,8 @@ namespace Demo.Presenation
             {
                 y = y + 1;
                 Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
-                Console.SetCursorPosition(8, y); Console.Write(list[i].TenDT);
-                Console.SetCursorPosition(20, y); Console.Write(list[i].HoTenKH);
+                Console.SetCursorPosition(6, y); Console.Write(list[i].TenDT);
+                Console.SetCursorPosition(22, y); Console.Write(list[i].HoTenKH);
                 Console.SetCursorPosition(35, y); Console.Write(list[i].Ngaydat);
                 Console.SetCursorPosition(50, y); Console.Write(list[i].Price.ToString());
                 Console.SetCursorPosition(60, y); Console.Write(list[i].Soluong.ToString());
@@ -71,16 +73,16 @@ namespace Demo.Presenation
             {
                 IHoaDonBLL hoadon = new HoaDonBLL();
                 Console.Clear();
-                Console.WriteLine("-----------------------------------------------------------------------");
-                Console.WriteLine("||                  NHAP THONG TIN HOA DON                           ||");
-                Console.WriteLine("||-------------------------------------------------------------------||");
-                Console.WriteLine("||                                                                   ||");
-                Console.WriteLine("||TEN DT:                    Ho Ten Khach Hang:                      ||");
-                Console.WriteLine("||                                                                   ||");
-                Console.WriteLine("||Ngay dat:        Gia:          So luong:      Sale:                ||");
-                Console.WriteLine("----------------------------------------------------------------------");
+                Console.WriteLine("--------------------------------------------------------------------------");
+                Console.WriteLine("||                  NHAP THONG TIN HOA DON                               ||");
+                Console.WriteLine("||-----------------------------------------------------------------------||");
+                Console.WriteLine("||                                                                       ||");
+                Console.WriteLine("||TEN DT:                    Ho Ten Khach Hang:                          ||");
+                Console.WriteLine("||                                                                       ||");
+                Console.WriteLine("||Ngay dat:             Gia:             So luong:       Sale:           ||");
+                Console.WriteLine("---------------------------------------------------------------------------");
                 int x = 0, y = 8;
-                int v = HienHD(hoadon.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Esc de thoat, Enter de luu!", 6);
+                int v = HienHD(hoadon.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 6);
                 HoaDon hd = new HoaDon();
                 Console.SetCursorPosition(11, 4); 
                 do
@@ -92,29 +94,29 @@ namespace Demo.Presenation
                 {
                     hd.HoTenKH = Console.ReadLine();
                 } while (hd.HoTenKH == "");
-                Console.SetCursorPosition(13, 6);
+                Console.SetCursorPosition(12, 6);
                 do
                 {
                     hd.Ngaydat = Console.ReadLine();
                 } while (hd.Ngaydat == "");
-                Console.SetCursorPosition(26, 6);
+                Console.SetCursorPosition(31, 6);
                 do
                 {
                     hd.Price = double.Parse(Console.ReadLine());
                 } while (hd.Price < 0);
-                Console.SetCursorPosition(47, 6);
+                Console.SetCursorPosition(50, 6);
                 do
                 {
                     hd.Soluong = int.Parse(Console.ReadLine());
                 } while (hd.Soluong < 0);
-                Console.SetCursorPosition(53, 6);
+                Console.SetCursorPosition(65, 6);
                 do
                 {
                     hd.Sale = int.Parse(Console.ReadLine());
                 } while (hd.Sale < 0);
                 Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
-                if (kt.Key == ConsoleKey.Escape) return exit;
+                if (kt.Key == ConsoleKey.Backspace) return exit;
                 else if (kt.Key == ConsoleKey.Enter)
                     hoadon.Add(hd);
             } while (true);

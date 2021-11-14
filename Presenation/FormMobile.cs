@@ -22,7 +22,7 @@ namespace Demo.Presenation
             Console.WriteLine("-----------------------------------------------------------------------------------------");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MADT");
-            Console.SetCursorPosition(x + 10, y); Console.Write("Ten DT");
+            Console.SetCursorPosition(x + 7, y); Console.Write("Ten DT");
             Console.SetCursorPosition(x + 28, y); Console.Write("NHA CC");
             Console.SetCursorPosition(x + 37, y); Console.Write("LOAI");
             Console.SetCursorPosition(x + 45, y); Console.Write("GIA");
@@ -33,7 +33,7 @@ namespace Demo.Presenation
             {
                 y = y + 1;
                 Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
-                Console.SetCursorPosition(10, y); Console.Write(list[i].TenDT);
+                Console.SetCursorPosition(7, y); Console.Write(list[i].TenDT);
                 Console.SetCursorPosition(28, y); Console.Write(list[i].NhaCC);
                 Console.SetCursorPosition(37, y); Console.Write(list[i].Type);
                 Console.SetCursorPosition(45, y); Console.Write(list[i].Price.ToString());
@@ -108,7 +108,7 @@ namespace Demo.Presenation
                 Console.WriteLine("||Loai:          Gia:          Sale:      So luong:          ||");
                 Console.WriteLine("  -----------------------------------------------------------  ");
                 int x = 0, y = 8;
-                int v = HienMB(mobile.GetAllData(),x, y, "                 DANH SACH DA NHAP                      ", "Nhan Space de thoat, Enter de luu!", 6);
+                int v = HienMB(mobile.GetAllData(),x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 6);
                 Mobile mb = new Mobile();
                 Console.SetCursorPosition(10, 4);
                 do
@@ -142,7 +142,7 @@ namespace Demo.Presenation
                 } while (mb.Quantum < 0);
                 Console.SetCursorPosition(32, v);                
                 ConsoleKeyInfo kt = Console.ReadKey();
-                if (kt.Key == ConsoleKey.Escape) return exit;
+                if (kt.Key == ConsoleKey.Backspace) return exit;
                 else if (kt.Key == ConsoleKey.Enter)
                     mobile.Add(mb);
             } while (true);
@@ -169,7 +169,7 @@ namespace Demo.Presenation
                 Console.Clear();
                 IMobileBLL mobile = new MobileBLL();
                 List<Mobile> list = mobile.Timdt(new Mobile(0, tenDT, null, null, 0, 0,0));
-                HienMB(list,0, 0, "                 DANH SACH DIEN THOAI                      ", "Nhap Ho va Ten can tim, Nhan vao Enter de thoat!", 30);
+                HienMB(list,0, 0, "                 DANH SACH DIEN THOAI                      ", "Nhap  Ten can tim, Nhan vao Enter de thoat!", 30);
                 
                  tenDT = Console.ReadLine();
                 

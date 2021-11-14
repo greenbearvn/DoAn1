@@ -23,8 +23,8 @@ namespace Demo.Presenation
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MaKH");
             Console.SetCursorPosition(x + 8, y); Console.Write("TenKH");
-            Console.SetCursorPosition(x + 20, y); Console.Write("Dia Chi");
-            Console.SetCursorPosition(x + 30, y); Console.Write("Tuoi");
+            Console.SetCursorPosition(x + 25, y); Console.Write("Dia Chi");
+            Console.SetCursorPosition(x + 40, y); Console.Write("Tuoi");
             Console.SetCursorPosition(x + 50, y); Console.Write("So DT");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
@@ -32,8 +32,8 @@ namespace Demo.Presenation
                 y = y + 1;
                 Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
                 Console.SetCursorPosition(8, y); Console.Write(list[i].Name);
-                Console.SetCursorPosition(20, y); Console.Write(list[i].Address);
-                Console.SetCursorPosition(30, y); Console.Write(list[i].Age.ToString());
+                Console.SetCursorPosition(25, y); Console.Write(list[i].Address);
+                Console.SetCursorPosition(40, y); Console.Write(list[i].Age.ToString());
                 Console.SetCursorPosition(50, y); Console.Write(list[i].Numberphone);
                 Console.WriteLine();
                 if ((++d) == n) break;
@@ -74,7 +74,7 @@ namespace Demo.Presenation
                 Console.WriteLine("||Tuoi:                   So Dien Thoai:                 ||");
                 Console.WriteLine("-----------------------------------------------------------");
                 int x = 0, y = 8;
-                int v = HienKH(customer.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Esc de thoat, Enter de luu!", 4);
+                int v = HienKH(customer.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 4);
                 Customer cm = new Customer();
                 Console.SetCursorPosition(10, 4);
                 do
@@ -98,7 +98,7 @@ namespace Demo.Presenation
                 } while (cm.Numberphone == "");
                 Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
-                if (kt.Key == ConsoleKey.Escape) return exit;
+                if (kt.Key == ConsoleKey.Backspace) return exit;
                 else if (kt.Key == ConsoleKey.Enter)
                     customer.Add(cm);
             } while (true);

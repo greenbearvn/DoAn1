@@ -1,5 +1,6 @@
-1#1#Apple#16#1000#0#2
-3#ss 3#Xiaomi#126#2000#7#0
-4#Cc#Xiaomi#128#2000#4#9
-5#Hay Qua#Apple#256#500000#7#3
-6#Galaxy Fold 3#Samsung#8/512#45000000#2#9
+
+1#Iphone 13 Pro Max#Apple#512#35000000#20#100
+2#Galaxy Z Fold 3#Samsung#512#45000000#30#2
+3#Galaxy Z Flip 3#Samsung#1tb#60000000#30#9
+4#Fixd X3 Pro#Oppo#128#29999999#8#10
+5#Iphone 13#Apple#128#20000000#0#0

@@ -64,11 +64,11 @@ namespace Demo.Presenation
                 Console.WriteLine("||                NHAP THONG TIN NHA CUNG CAP                                    ||");
                 Console.WriteLine("||-------------------------------------------------------------------------------||");
                 Console.WriteLine("||                                                                               ||");
-                Console.WriteLine("||TEN nha cung cap:                              Dia chi:                   ||");
+                Console.WriteLine("||TEN nha cung cap:                              Dia chi:                        ||");
                 Console.WriteLine("||                                                                               ||");
                 Console.WriteLine("  -------------------------------------------------------------------------------");
                 int x = 0, y = 8;
-                int v = HienNCC(brand.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Space de thoat, Enter de luu!", 6);
+                int v = HienNCC(brand.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 6);
                 Brand br = new Brand();
                 Console.SetCursorPosition(21, 4);
                 do

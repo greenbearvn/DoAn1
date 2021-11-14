@@ -17,8 +17,8 @@ namespace Demo.Presenation
             Console.WriteLine(tieudedau);
             Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
             y = y + 4;
-            Console.SetCursorPosition(x + 1, y); Console.Write("MaKH");
-            Console.SetCursorPosition(x + 8, y); Console.Write("TenKH");
+            Console.SetCursorPosition(x + 1, y); Console.Write("MaNV");
+            Console.SetCursorPosition(x + 8, y); Console.Write("TenNV");
             Console.SetCursorPosition(x + 25, y); Console.Write("Dia Chi");
             Console.SetCursorPosition(x + 40, y); Console.Write("Tuoi");
             Console.SetCursorPosition(x + 55, y); Console.Write("So DT");
@@ -55,7 +55,7 @@ namespace Demo.Presenation
                 Console.Clear();
                 IEmployeeBLL employee = new EmployeeBLL();
 
-                HienNV(employee.GetAllData(), 0, 0, "                 DANH SACH NHAN VIEN                      ", "Nhan vay Enter de thoat!", 30);
+                HienNV(employee.GetAllData(), 0, 0, "                 DANH SACH NHAN VIEN                      ", "Nhan vao Enter de thoat!", 30);
                 exit = Console.ReadLine();
                 if (exit == "") return;
             } while (true);
@@ -80,7 +80,7 @@ namespace Demo.Presenation
                 Console.WriteLine("||Luong Co Ban:          He So Luong:       Phu cap:         ||");
                 Console.WriteLine("--------------------------------------------------------------");
                 int x = 0, y = 8;
-                int v = HienNV(employee.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Esc de thoat, Enter de luu!", 4);
+                int v = HienNV(employee.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 4);
                 Employee cm = new Employee();
                 Console.SetCursorPosition(9, 4);
                 do
@@ -118,7 +118,7 @@ namespace Demo.Presenation
                 } while (cm.Phucap < 0);
                  Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
-                if (kt.Key == ConsoleKey.Escape) return exit;
+                if (kt.Key == ConsoleKey.Backspace) return exit;
                 else if (kt.Key == ConsoleKey.Enter)
                     employee.Add(cm);
             } while (true);

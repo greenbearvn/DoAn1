@@ -116,8 +116,6 @@ namespace Demo.DataAccessLayer
         {
             List<Mobile> list = GetAllData();
             int n = list.Count;
-            int id, sale, quantum;
-            string tendt, nhacc, type;
             double price;
             for (int i = 0; i < n-1; i++)
             {
@@ -126,24 +124,7 @@ namespace Demo.DataAccessLayer
                 {
                     if (list[j].Price < list[min].Price)
                     {
-                        id = list[i].Id;
-                        list[i].Id = list[j].Id;
-                        list[j].Id = id;
-                        tendt = list[i].TenDT;
-                        list[i].TenDT = list[j].TenDT;
-                        list[j].TenDT = tendt;
-                        nhacc = list[i].NhaCC;
-                        list[i].NhaCC = list[j].NhaCC;
-                        list[j].NhaCC = nhacc;
-                        type = list[i].Type;
-                        list[i].Type = list[j].Type;
-                        list[j].Type = type;
-                        sale = list[i].Sale;
-                        list[i].Sale = list[j].Sale;
-                        list[j].Sale = sale;
-                        quantum = list[i].Quantum;
-                        list[i].Quantum = list[j].Quantum;
-                        list[j].Quantum = quantum;
+                       
                         price = list[i].Price;
                         list[i].Price = list[j].Price;
                         list[j].Price = price;
@@ -154,10 +135,7 @@ namespace Demo.DataAccessLayer
                     fwrite.Close();
 
                 }
-            }    
-                
-
-            
+            }      
         }
 
     }

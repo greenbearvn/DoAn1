@@ -125,7 +125,7 @@ namespace Demo.Presenation
                 Console.Clear();
                 ICustomerBLL customer = new CustomerBLL();
                 List<Customer> list = customer.TimKH(new Customer(0, tenKH, null, 0, null));
-                HienKH(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhap Ho va Ten KH can tim, Nhan vay Enter de thoat!", 30);
+                HienKH(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhập họ tên khách hàng cần tìm, Nhan vao Enter de thoat!", 30);
                 tenKH = Console.ReadLine();
                 if (tenKH == "") return;
             } while (true);

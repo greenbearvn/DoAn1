@@ -24,7 +24,7 @@ namespace Demo.DataAccessLayer
                 {
                     s = Demo.Utility.CongCu.CatXau(s);
                     string[] a = s.Split('#');
-                    list.Add(new Employee(int.Parse(a[0]), a[1], a[2], int.Parse(a[3]), a[4], double.Parse(a[5]), double.Parse(a[6]), double.Parse(a[7])));
+                    list.Add(new Employee(int.Parse(a[0]), a[1], a[2], int.Parse(a[3]), a[4], double.Parse(a[5]), double.Parse(a[6]), double.Parse(a[7]), double.Parse(a[8])));
                 }
                 s = fread.ReadLine();
             }
@@ -57,7 +57,7 @@ namespace Demo.DataAccessLayer
             int id = GetID() + 1;
             StreamWriter fwrite = File.AppendText(txtfile);
             fwrite.WriteLine();
-            fwrite.Write(id + "#" + em.Name + "#" + em.Address + "#" + em.Age + "#" + em.Numberphone + "#" + em.Luongcoban + "#" + em.Hesoluong + "#" + em.Phucap);
+            fwrite.Write(id + "#" + em.Name + "#" + em.Address + "#" + em.Age + "#" + em.Numberphone + "#" + em.Luongcoban + "#" + em.Hesoluong + "#" + em.Phucap + "#" + em.Tinhluong);
             fwrite.Close();
         }
           
@@ -67,7 +67,7 @@ namespace Demo.DataAccessLayer
             StreamWriter fwrite = File.CreateText(txtfile);
             foreach (Employee em in list)
                 if (em.Id != id)
-                    fwrite.WriteLine(em.Id + "#" + em.Name + "#" + em.Address + "#" + em.Age + "#" + em.Numberphone + "#" + em.Luongcoban + "#" + em.Hesoluong + "#" + em.Phucap);
+                    fwrite.WriteLine(em.Id + "#" + em.Name + "#" + em.Address + "#" + em.Age + "#" + em.Numberphone + "#" + em.Luongcoban + "#" + em.Hesoluong + "#" + em.Phucap + "#" + em.Tinhluong);
             fwrite.Close();
         }
 
@@ -81,7 +81,7 @@ namespace Demo.DataAccessLayer
 
             StreamWriter fwrite = File.CreateText(txtfile);
             foreach (Employee em in list)
-                fwrite.WriteLine(em.Id + "#" + em.Name + "#" + em.Address + "#" + em.Age + "#" + em.Numberphone + "#" + em.Luongcoban + "#" + em.Hesoluong + "#" + em.Phucap);
+                fwrite.WriteLine(em.Id + "#" + em.Name + "#" + em.Address + "#" + em.Age + "#" + em.Numberphone + "#" + em.Luongcoban + "#" + em.Hesoluong + "#" + em.Phucap + "#" + em.Tinhluong);
             fwrite.Close();
         }
 

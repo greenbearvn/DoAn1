@@ -7,6 +7,7 @@ namespace Demo.Utility
 
     public abstract class Menu
     {
+        
         private string[] mn;
         public Menu(string[] mn)
         {

@@ -19,26 +19,26 @@ namespace Demo.Presenation
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine(tieudedau);
-            Console.WriteLine("-----------------------------------------------------------------");
+            Console.WriteLine("-----------------------------------------------------------------------------------------");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MADT");
-            Console.SetCursorPosition(x + 15, y); Console.Write("Ten DT");
+            Console.SetCursorPosition(x + 10, y); Console.Write("Ten DT");
             Console.SetCursorPosition(x + 28, y); Console.Write("NHA CC");
             Console.SetCursorPosition(x + 37, y); Console.Write("LOAI");
             Console.SetCursorPosition(x + 45, y); Console.Write("GIA");
-            Console.SetCursorPosition(x + 52, y); Console.Write("SALE");
-            Console.SetCursorPosition(x + 58 , y); Console.Write("SO LUONG");
+            Console.SetCursorPosition(x + 54, y); Console.Write("SALE");
+            Console.SetCursorPosition(x + 62, y); Console.Write("SO LUONG");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
             {
                 y = y + 1;
                 Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
-                Console.SetCursorPosition(15, y); Console.Write(list[i].TenDT);
+                Console.SetCursorPosition(10, y); Console.Write(list[i].TenDT);
                 Console.SetCursorPosition(28, y); Console.Write(list[i].NhaCC);
                 Console.SetCursorPosition(37, y); Console.Write(list[i].Type);
                 Console.SetCursorPosition(45, y); Console.Write(list[i].Price.ToString());
-                Console.SetCursorPosition(52, y); Console.Write(list[i].Sale.ToString());
-                Console.SetCursorPosition(58, y); Console.Write(list[i].Quantum.ToString());
+                Console.SetCursorPosition(54, y); Console.Write(list[i].Sale.ToString());
+                Console.SetCursorPosition(62, y); Console.Write(list[i].Quantum.ToString());
                 Console.WriteLine();
                 if ((++d) == n) break;
             }
@@ -56,7 +56,7 @@ namespace Demo.Presenation
                 Console.Clear();
                 IMobileBLL mobile = new MobileBLL();
                 
-                HienMB(mobile.GetAllData(), 0, 0, "                 DANH SACH DIEN THOAI                       ", "Nhan vay Enter de thoat!", 30);
+                HienMB(mobile.GetAllData(), 0, 0, "                 DANH SACH DIEN THOAI                       ", "Nhan vào Enter de thoat!", 30);
                 exit = Console.ReadLine();
                 if (exit == "") return;
             } while (true);
@@ -74,8 +74,6 @@ namespace Demo.Presenation
                 if (kt.Key == ConsoleKey.Escape) return;
                 else if (kt.Key == ConsoleKey.Enter)
                     mobile.ThongKe();
-                
-
             } while (true);
         }
 
@@ -86,13 +84,11 @@ namespace Demo.Presenation
             {
                 Console.Clear();
                 IMobileBLL mobile = new MobileBLL();
-                HienMB(mobile.GetAllData(), 0, 0, "                 DANH SACH DIEN THOAI DA SAP XEP                       ", "Nhan vao Enter de thong ke!", 30);
+                HienMB(mobile.GetAllData(), 0, 0, "                 DANH SÁCH ĐIỆN THOẠI ĐÃ SẮP XẾP                      ", "Nhấn ESC để thoát và NHấn vào Enter để sắp xếp!", 30);
                 ConsoleKeyInfo kt = Console.ReadKey();
                 if (kt.Key == ConsoleKey.Escape) return;
                 else if (kt.Key == ConsoleKey.Enter)
                     mobile.Sort();
-
-
             } while (true);
         }
 
@@ -109,7 +105,7 @@ namespace Demo.Presenation
                 Console.WriteLine("||                                                           ||");
                 Console.WriteLine("||TEN DT:                    Nha cung cap:                   ||");
                 Console.WriteLine("||                                                           ||");
-                Console.WriteLine("||Loai:          Gia:          Sale:      Hang con:          ||");
+                Console.WriteLine("||Loai:          Gia:          Sale:      So luong:          ||");
                 Console.WriteLine("  -----------------------------------------------------------  ");
                 int x = 0, y = 8;
                 int v = HienMB(mobile.GetAllData(),x, y, "                 DANH SACH DA NHAP                      ", "Nhan Space de thoat, Enter de luu!", 6);
@@ -174,10 +170,9 @@ namespace Demo.Presenation
                 IMobileBLL mobile = new MobileBLL();
                 List<Mobile> list = mobile.Timdt(new Mobile(0, tenDT, null, null, 0, 0,0));
                 HienMB(list,0, 0, "                 DANH SACH DIEN THOAI                      ", "Nhap Ho va Ten can tim, Nhan vao Enter de thoat!", 30);
-                do
-                {
-                    tenDT = Console.ReadLine();
-                } while (tenDT == "");
+                
+                 tenDT = Console.ReadLine();
+                
                 if (tenDT == "") return; 
             } while (true);
         }
@@ -221,7 +216,7 @@ namespace Demo.Presenation
                         mb.TenDT = Console.ReadLine();
                     } while (mb.TenDT == "");
                 } catch { }
-                Console.SetCursorPosition(62, 4); try {
+                Console.SetCursorPosition(65, 4); try {
                     do
                     {
                         mb.NhaCC = Console.ReadLine();

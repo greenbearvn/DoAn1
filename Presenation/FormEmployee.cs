@@ -14,10 +14,8 @@ namespace Demo.Presenation
         int HienNV(List<Employee> list, int x, int y, string tieudedau, string tieudecuoi, int n)
         {
 
-            Console.WriteLine();
-            
             Console.WriteLine(tieudedau);
-            Console.WriteLine("-----------------------------------------------------------------");
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MaKH");
             Console.SetCursorPosition(x + 8, y); Console.Write("TenKH");
@@ -27,6 +25,7 @@ namespace Demo.Presenation
             Console.SetCursorPosition(x + 70, y); Console.Write("Luong co ban");
             Console.SetCursorPosition(x + 85, y); Console.Write("He so luong");
             Console.SetCursorPosition(x + 100, y); Console.Write("Phu Cap");
+            Console.SetCursorPosition(x + 110, y); Console.Write("Tong Luong");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
             {
@@ -39,6 +38,7 @@ namespace Demo.Presenation
                 Console.SetCursorPosition(70, y); Console.Write(list[i].Luongcoban.ToString());
                 Console.SetCursorPosition(85, y); Console.Write(list[i].Hesoluong.ToString());
                 Console.SetCursorPosition(100, y); Console.Write(list[i].Phucap.ToString());
+                Console.SetCursorPosition(110, y); Console.Write(list[i].Tinhluong.ToString());
                 Console.WriteLine();
                 if ((++d) == n) break;
             }
@@ -144,7 +144,7 @@ namespace Demo.Presenation
             {
                 Console.Clear();
                 IEmployeeBLL employee = new EmployeeBLL();
-                List<Employee> list = employee.TimNV(new Employee(0, tenNV, null, 0, null,0,0,0));
+                List<Employee> list = employee.TimNV(new Employee(0, tenNV, null, 0, null,0,0,0,0));
                 HienNV(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhap Ho va Ten KH can tim, Nhan vay Enter de thoat!", 30);
                 tenNV = Console.ReadLine();
                 if (tenNV == "") return;

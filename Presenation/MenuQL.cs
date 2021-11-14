@@ -11,54 +11,58 @@ namespace Demo.Presenation
         public MenuQL(string[] mn) : base(mn) { }
         public override void ThucHien(int vitri)
         {
+            
+
             string[] mn ={
-                            " 1.Them thong tin den thoai vao danh sach",
-                            " 2.Hien thi danh sach thong tin dien thoai ",
-                            " 3.Tim thong tin dien thoai ",
-                            " 4.Xoa thong tin dien thoai theo ma",
-                            " 5.Thong ke dien thoai con hang ",
-                            " 6.Cap nhat thong tin nha cung cap theo ma ",
-                            " 7.Sap xep danh sach dien thoai ",
-                            " 8.Ket thuc"
+                            " 1.Thêm thông tin điện thoại vào danh sách",
+                            " 2.Hiển thị danh sách thông tin điện thoại ",
+                            " 3.Tìm kiếm thông tin điện thoại ",
+                            " 4.Xóa thông tin điện thoại theo mã",
+                            " 5.Thống kê điện thoại còn hàng ",
+                            " 6.Cập nhật thông tin điện thoại theo mã ",
+                            " 7.Sắp xếp danh sách điện thoại theo mã ",
+                            " 8.Kết thúc"
                         };
             Demo.Presenation.MenuMobile mndemo = new Demo.Presenation.MenuMobile(mn);
             
             string[] aa ={
-                            " 1.Nhap thong tin hoa don",
-                            " 2.Hien thi danh sach hoa don ",
-                            " 3.Tim hoa don theo ten",
-                            " 4.Xoa thong tin hoa don theo ma",
-                            " 5.Cap nhat thong tin hoa don theo ma ",
-                            " 6.Ket Thuc "
+                            " 1.Nhập thông tin hóa đơn",
+                            " 2.Hiển thị danh sách hóa đơn ",
+                            " 3.Tìm kiếm hóa đơn",
+                            " 4.Xóa thông tin hóa đơn theo mã",
+                            " 5.Cập nhật thông tin hóa đơn theo mã ",
+                            " 6.Kết thúc "
                         };
             Demo.Presenation.MenuHoaDon aademo = new Demo.Presenation.MenuHoaDon(aa);
 
             string[] cs ={
-                            " 1.Them thong tin khach hang moi vao danh sach",
-                            " 2.Hien thi cac danh sach khach hang ",
-                            " 3.Tim khach hang theo ten",
-                            " 4.Xoa thong tin khach hang theo ma",
-                            " 5.Cap nhat thong tin khach hang theo ma ",
-                            " 6.Ket Thuc "
+                            " 1.Thêm thông tin khách hàng mới vào danh sách",
+                            " 2.Hiển thị danh sách khách hàng ",
+                            " 3.Tìm kiếm thông tin khách hàng",
+                            " 4.Xóa hông tin khách hàng theo mã",
+                            " 5.Cập nhật thông tin khách hàng theo mã ",
+                            " 6.Kết thúc "
                         };
             Demo.Presenation.MenuCustomer csdemo = new Demo.Presenation.MenuCustomer(cs);
 
             string[] em ={
-                            " 1.Them thong tin nhan vien moi vao danh sach",
-                            " 2.Hien thi danh sach cac nhan vien ",
-                            " 3.Tim nhan vien theo ten",
-                            " 4.Xoa thong tin nhan vien theo ma",
-                            " 5.Ket Thuc",
+                            " 1.Thêm thông tin nhân viên mới vào danh sách",
+                            " 2.Hiển thị danh sách nhân viên ",
+                            " 3.Tìm kiếm thông tin nhân viên",
+                            " 4.Xóa hông tin nhân viên theo mã",
+                            " 5.Cập nhật thông tin nhân viên theo mã ",
+                            " 6.Kết thúc "
 
                         };
             Demo.Presenation.MenuEmployee emdemo = new Demo.Presenation.MenuEmployee(em);
 
             string[] br ={
-                            " 1.Them thong tin nha cung cap moi vao danh sach",
-                            " 2.Hien thi danh sach cac nha cung cap ",
-                            " 3.Tim nha cung cap theo ten",
+                            " 1.Thêm thông tin nhà cung cấp mới vào danh sách",
+                            " 2.Hiển thị danh sách nhà cung cấp",
+                            " 3.Tìm kiếm thông tin nhà cung cấp",
                             " 4.Xoa thong tin nha cung cap theo ma",
-                            " 5.Ket Thuc",
+                            " 5.Cập nhật thông tin nhà cung cấp theo mã ",
+                            " 6.Kết thúc "
 
                         };
             Demo.Presenation.MenuBrand aaa = new Demo.Presenation.MenuBrand(br);

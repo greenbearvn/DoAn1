@@ -57,7 +57,7 @@ namespace Demo.Presenation
                 Console.Clear();
                 IHoaDonBLL hoadon = new HoaDonBLL();
 
-                HienHD(hoadon.GetAllData(), 0, 0, "                 DANH HOC SINH                       ", "Nhan vay Enter de thoat!", 30);
+                HienHD(hoadon.GetAllData(), 0, 0, "                 DANH SACH HOA DON                      ", "Nhan vay Enter de thoat!", 30);
                 exit = Console.ReadLine();
                 if (exit == "") return;
             } while (true);
@@ -135,15 +135,15 @@ namespace Demo.Presenation
 
         public void TimHD()
         {
-            string tenDT = "";
+            string tenHD = "";
             do
             {
                 Console.Clear();
                 IHoaDonBLL hoadon = new HoaDonBLL();
-                List<HoaDon> list = mobile.TimHD(new HoaDon(0, tenDT, null, null, 0, 0,0,0));
-                HienHD(list, 0, 0, "                 DANH SACH HOA DON                      ", "Nhap Ho va Ten KH can tim, Nhan vay Enter de thoat!", 30);
-                tenDT = Console.ReadLine();
-                if (tenDT == "") return;
+                List<HoaDon> list = mobile.TimHD(new HoaDon(0, tenHD, null, null, 0, 0,0,0));
+                HienHD(list, 0, 0, "                 DANH SACH HOA DON                      ", "Nhập tên hóa đơn cần tìm, Nhan vay Enter de thoat!", 30);
+                tenHD = Console.ReadLine();
+                if (tenHD == "") return;
             } while (true);
         }
         public void SuaHD()

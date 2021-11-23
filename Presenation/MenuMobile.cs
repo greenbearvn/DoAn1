@@ -6,38 +6,38 @@ using Demo.Utility;
 namespace Demo.Presenation
 {
     //Trình bày dữ liệu cho đẹp
-    public class MenuMobile : Menu
+    public class MenuMobile : Menu // Kế thừa từ lớp menu chính
     {
-        public MenuMobile(string[] mn) : base(mn) { }
-        public override void ThucHien(int vitri)
+        public MenuMobile(string[] mn) : base(mn) { } // gọi hàm khởi tạo không tham số của lớp cha
+        public override void ThucHien(int vitri) // ghi đè lên hàm thực hiện của lớp cha
         {
-            FormMobile mobile = new FormMobile();
+            FormMobile mobile = new FormMobile(); // tạo đối tượng mobile sử dụng các chức năng của FormMobile
             
             switch (vitri)
             {
                 case 0:
-                    mobile.NhapMB();
+                    mobile.NhapMB(); // Gọi hàm Nhập 
                     break;
                 case 1:
-                    mobile.Hien();
+                    mobile.Hien(); // gọi hàm hiển thị
                     break;
                 case 2:
-                    mobile.TimDT();
+                    mobile.TimDT(); // gọi hàm tìm
                     break;
                 case 3:
-                    mobile.XoaMB();
+                    mobile.XoaMB(); // gọi hàm xóa
                     break;
                 case 4:
-                    mobile.ThongKe();
+                    mobile.ThongKe(); // gọi hàm thống kê
                     break;
                 case 5:
-                    mobile.SuaMB();
+                    mobile.SuaMB(); // gọi hàm sửa thông tin
                     break;
                 case 6:
-                    mobile.Sort();
+                    mobile.Sort(); // gọi hàm Sắp xếp
                     break;
                 case 7:
-                    Environment.Exit(0);
+                    Environment.Exit(0); // thoát chương trình
                     break;
 
             } 

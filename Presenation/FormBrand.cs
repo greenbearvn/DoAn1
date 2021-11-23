@@ -18,7 +18,7 @@ namespace Demo.Presenation
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine(tieudedau);
-            Console.WriteLine("-----------------------------------------------------------------");
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MA NhaCC");
             Console.SetCursorPosition(x + 15, y); Console.Write("Ten Ncc");
@@ -60,13 +60,13 @@ namespace Demo.Presenation
             {
                 IBrandBLL brand = new BrandBLL();
                 Console.Clear();
-                Console.WriteLine("  -------------------------------------------------------------------------------");
-                Console.WriteLine("||                NHAP THONG TIN NHA CUNG CAP                                    ||");
-                Console.WriteLine("||-------------------------------------------------------------------------------||");
-                Console.WriteLine("||                                                                               ||");
-                Console.WriteLine("||TEN nha cung cap:                              Dia chi:                        ||");
-                Console.WriteLine("||                                                                               ||");
-                Console.WriteLine("  -------------------------------------------------------------------------------");
+                Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("║                          NHAP THONG TIN NHA CUNG CAP                            ║");
+                Console.WriteLine("║═════════════════════════════════════════════════════════════════════════════════║");
+                Console.WriteLine("║                                                                                 ║");
+                Console.WriteLine("║TEN nha cung cap:                              Dia chi:                          ║");
+                Console.WriteLine("║                                                                                 ║");
+                Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════╝");
                 int x = 0, y = 8;
                 int v = HienNCC(brand.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 6);
                 Brand br = new Brand();
@@ -123,13 +123,13 @@ namespace Demo.Presenation
 
             
             Console.Clear();
-            Console.WriteLine("  -------------------------------------------------------------------------------");
-            Console.WriteLine("||                NHAP THONG TIN NHA CUNG CAP                                    ||");
-            Console.WriteLine("||-------------------------------------------------------------------------------||");
-            Console.WriteLine("||                                                                               ||");
-            Console.WriteLine("||TEN nha cung cap:                              Nha cung cap:                   ||");
-            Console.WriteLine("||                                                                               ||");
-            Console.WriteLine("  -------------------------------------------------------------------------------");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║                        CAP NHAT THONG TIN NHA CUNG CAP                         ║");
+            Console.WriteLine("║------------------------------------------------------------------------------- ║");
+            Console.WriteLine("║                                                                                ║");
+            Console.WriteLine("║TEN nha cung cap:                              Nha cung cap:                    ║");
+            Console.WriteLine("║                                                                                ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════╝");
             int v = Console.CursorTop;
             
             IBrandBLL brand = new BrandBLL();

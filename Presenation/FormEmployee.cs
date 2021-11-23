@@ -15,7 +15,7 @@ namespace Demo.Presenation
         {
 
             Console.WriteLine(tieudedau);
-            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MaNV");
             Console.SetCursorPosition(x + 8, y); Console.Write("TenNV");
@@ -69,16 +69,16 @@ namespace Demo.Presenation
             {
                 IEmployeeBLL employee = new EmployeeBLL();
                 Console.Clear();
-                Console.WriteLine("--------------------------------------------------------------");
-                Console.WriteLine("||                NHAP THONG TIN NHAN VIEN                   ||");
-                Console.WriteLine("||-----------------------------------------------------------||");
-                Console.WriteLine("||                                                           ||");
-                Console.WriteLine("||TEN KH:                    Dia chi:                        ||");
-                Console.WriteLine("||                                                           ||");
-                Console.WriteLine("||Tuoi:                      So Dien Thoai:                  ||");
-                Console.WriteLine("||                                                           ||");
-                Console.WriteLine("||Luong Co Ban:          He So Luong:       Phu cap:         ||");
-                Console.WriteLine("--------------------------------------------------------------");
+                Console.WriteLine("╔═════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("║                NHAP THONG TIN NHAN VIEN                     ║");
+                Console.WriteLine("║═════════════════════════════════════════════════════════════║");
+                Console.WriteLine("║                                                             ║");
+                Console.WriteLine("║TEN KH:                    Dia chi:                          ║");
+                Console.WriteLine("║                                                             ║");
+                Console.WriteLine("║Tuoi:                      So Dien Thoai:                    ║");
+                Console.WriteLine("║                                                             ║");
+                Console.WriteLine("║Luong Co Ban:          He So Luong:       Phu cap:           ║");
+                Console.WriteLine("╚═════════════════════════════════════════════════════════════╝");
                 int x = 0, y = 8;
                 int v = HienNV(employee.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 4);
                 Employee cm = new Employee();
@@ -163,16 +163,16 @@ namespace Demo.Presenation
 
             //Hiên thị mẫu nhập
             Console.Clear();
-            Console.WriteLine("---------------------------------------------------------------------------------------------");
-            Console.WriteLine("||                             NHAP THONG TIN NHAN VIEN                                      ||");
-            Console.WriteLine("||-------------------------------------------------------------------------------------------||");
-            Console.WriteLine("||Nhap ID:                                                                                   ||");
-            Console.WriteLine("||TEN KH:                    Dia chi:                                                        ||");
-            Console.WriteLine("||                                                                                           ||");
-            Console.WriteLine("||Tuoi:                      So Dien Thoai:                                                  ||");
-            Console.WriteLine("||                                                                                           ||");
-            Console.WriteLine("||Luong Co Ban:                      He So Luong:                    Phu cap:                ||");
-            Console.WriteLine("----------------------------------------------------------------------------------------------");   
+            Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║                             NHAP THONG TIN NHAN VIEN                                       ║");
+            Console.WriteLine("║════════════════════════════════════════════════════════════════════════════════════════════║");
+            Console.WriteLine("║Nhap ID:                                                                                    ║");
+            Console.WriteLine("║TEN KH:                    Dia chi:                                                         ║");
+            Console.WriteLine("║                                                                                            ║");
+            Console.WriteLine("║Tuoi:                      So Dien Thoai:                                                   ║");
+            Console.WriteLine("║                                                                                            ║");
+            Console.WriteLine("║Luong Co Ban:                      He So Luong:                    Phu cap:                 ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════════╝");   
             int v = Console.CursorTop;
             
             IEmployeeBLL employee = new EmployeeBLL();

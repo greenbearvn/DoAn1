@@ -6,10 +6,12 @@ namespace Demo.Entities
 {
     class HoaDon
     {
+        // Khai báo các thuộc tính của đối tượng hóa đơn
         private int id, soluong,sale;
         private string hoTenKH, tenDT, ngaydat;
         private double total,price;
 
+        // public các thuộc tính của đối tượng hóa đơn để có thể sử dụng ở các class khác
         public int Id {
             get { return id; }
             set
@@ -69,7 +71,10 @@ namespace Demo.Entities
             }
         }
 
+        // Phương thức khởi tạo đối tượng không tham số
         public HoaDon() { }
+
+
         //Phương thức thiết lập sao chép
         public HoaDon(HoaDon hd)
         {
@@ -82,6 +87,8 @@ namespace Demo.Entities
             this.soluong = hd.soluong;
             this.sale = hd.sale;
         }
+
+        // Thiết lập phương thức khởi tạo đối tượng truyền tham số 
         public HoaDon(int id, string tenDT, string hoTenKH, string ngaydat, double price, int soluong, int sale, double total)
         {
             this.id = id;

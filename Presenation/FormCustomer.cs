@@ -19,7 +19,7 @@ namespace Demo.Presenation
 
             Console.WriteLine();
             Console.WriteLine(tieudedau);
-            Console.WriteLine("-----------------------------------------------------------------");
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MaKH");
             Console.SetCursorPosition(x + 8, y); Console.Write("TenKH");
@@ -65,14 +65,14 @@ namespace Demo.Presenation
             {
                 ICustomerBLL customer = new CustomerBLL();
                 Console.Clear();
-                Console.WriteLine("-----------------------------------------------------------");
-                Console.WriteLine("||                NHAP THONG TIN KHACH HANG              ||");
-                Console.WriteLine("||-------------------------------------------------------||");
-                Console.WriteLine("||                                                       ||");
-                Console.WriteLine("||TEN KH:                    Dia chi:                    ||");
-                Console.WriteLine("||                                                       ||");
-                Console.WriteLine("||Tuoi:                   So Dien Thoai:                 ||");
-                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine("╔════════════════════════════════════════════════════════╗");
+                Console.WriteLine("║                NHAP THONG TIN KHACH HANG               ║");
+                Console.WriteLine("║════════════════════════════════════════════════════════║");
+                Console.WriteLine("║                                                        ║");
+                Console.WriteLine("║TEN KH:                    Dia chi:                     ║");
+                Console.WriteLine("║                                                        ║");
+                Console.WriteLine("║Tuoi:                   So Dien Thoai:                  ║");
+                Console.WriteLine("╚════════════════════════════════════════════════════════╝");
                 int x = 0, y = 8;
                 int v = HienKH(customer.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 4);
                 Customer cm = new Customer();
@@ -139,14 +139,14 @@ namespace Demo.Presenation
             
            
             Console.Clear();
-            Console.WriteLine("------------------------------------------------------------------");
-            Console.WriteLine("||                NHAP THONG TIN KHACH HANG                      ||");
-            Console.WriteLine("||---------------------------------------------------------------||");
-            Console.WriteLine("||Nhap ID:                                                       ||");
-            Console.WriteLine("||TEN KH:                    Dia chi:                            ||");
-            Console.WriteLine("||                                                               ||");
-            Console.WriteLine("||Tuoi:            So Dien Thoai:                                ||");
-            Console.WriteLine("------------------------------------------------------------------");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║                NHAP THONG TIN KHACH HANG                       ║");
+            Console.WriteLine("║----------------------------------------------------------------║");
+            Console.WriteLine("║Nhap ID:                                                        ║");
+            Console.WriteLine("║TEN KH:                    Dia chi:                             ║");
+            Console.WriteLine("║                                                                ║");
+            Console.WriteLine("║Tuoi:            So Dien Thoai:                                 ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════════╝");
             int v = Console.CursorTop;
             
             ICustomerBLL customer = new CustomerBLL();

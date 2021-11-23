@@ -8,89 +8,78 @@ using Demo.Business.Services;
 namespace Demo.Business.Components
 {
     
-    public class MobileBLL : IMobileBLL
+    public class MobileBLL : IMobileBLL // Kế thừa các phương thức đã định nghĩa từ lớp giao diện IMobileBLL 
     {
-        private IMobileDAL mbDA = new MobileDAL();
+        private IMobileDAL mbDA = new MobileDAL(); // Tạo 1 đối tượng để dùng các chức năng từ phần MobileDAL
         //Thực thi các yêu cầu
 
 
-        public void Delete(int id)
+        public void Delete(int id) // hàm xóa xử lí check sd phương thức public để dùng tại các lớp khác với giá trị đầu vào là id nhập void trả về ko tham số
         {
-            if (CheckID(id))
-                mbDA.Delete(id);
+            if (CheckID(id))// Kiểm tra xem có id đó có hay không
+                mbDA.Delete(id);// gọi hàm xóa bên phần DAL
             else
-                throw new Exception("Khong ton tai ma nay");
+                throw new Exception("Khong ton tai ma nay");// Nếu không có thì văng lỗi
         }
         
         
         
-        public bool CheckID(int id)
+        public bool CheckID(int id)// hàm CheckID có thể dùng các class khác với tham số truyền vào là ID và kiểu bool để check xem có mã ko 
         {
-            bool ok = false;
-            foreach (Mobile mobile in mbDA.GetAllData())
-                if (mobile.Id == id)
+            bool ok = false;// khai báo biến mặc định bằng false
+
+            foreach (Mobile mobile in mbDA.GetAllData())// Lặp qua danh sách điện thoại trong DAL lấy thuộc tính của phần tử
+                if (mobile.Id == id)// nếu kiểm tra id đúng 
                 {
-                    ok = true; break;
+                    ok = true; break;// thì sẽ là true
                 }
-            return ok;
+            return ok; // trả ra true nếu có id hoặc false nếu ko có id
         }
 
-        
 
+        //  Hàm lấy toàn bộ dữ liệu từ tệp
         List<Mobile> IMobileBLL.GetAllData()
         {
             return mbDA.GetAllData();
         }
 
+
+        // hàm thêm với tham số truyền vào là đối tượng ko trả giá trị
         void IMobileBLL.Add(Mobile mb)
         {
-            if (mb.TenDT != "" && mb.NhaCC != "" && mb.Type != "")
+            if (mb.TenDT != "" && mb.NhaCC != "" && mb.Type != "")// Nếu tên , nhà cung cấp , loại khác rỗng
             {
-                mb.TenDT = Demo.Utility.CongCu.ChuanHoaXau(mb.TenDT);
-                mb.NhaCC = Demo.Utility.CongCu.ChuanHoaXau(mb.NhaCC);
-                mb.Type = Demo.Utility.CongCu.ChuanHoaXau(mb.Type);
-                mbDA.Add(mb);
+                mb.TenDT = Demo.Utility.CongCu.ChuanHoaXau(mb.TenDT);// chuẩn hóa xâu tên
+                mb.NhaCC = Demo.Utility.CongCu.ChuanHoaXau(mb.NhaCC);// chuẩn hóa xâu nhà cung cấp
+                mb.Type = Demo.Utility.CongCu.ChuanHoaXau(mb.Type);// chuẩn hóa xâu loại
+                mbDA.Add(mb);// gọi hàm để thêm vào tệp ở phần DAL
             }
             else
-                throw new Exception("Du lieu sai");
+                throw new Exception("Du lieu sai");// nếu bằng rỗng thì văng lỗi
         }
 
+        // hàm tìm kiếm với tham số truyền vào là đối tượng 
         List<Mobile> IMobileBLL.Timdt(Mobile mb)
         {
-            List<Mobile> list = mbDA.GetAllData();
-            List<Mobile> kq = new List<Mobile>();
+            List<Mobile> list = mbDA.GetAllData(); // danh sách các điện thoại biến là list , được lấy dữ liệu từ tệp 
+
+            List<Mobile> kq = new List<Mobile>();// danh sách kq tạm thời
+
             //Voi gai tri ngam dinh ban dau
             if (mb.TenDT == null && mb.NhaCC == null && mb.Id == 0)
             {
                 kq = list;
             }
             //Tim theo ho ten
-            if (mb.TenDT != null && mb.NhaCC == null && mb.Id == 0)
+            if (mb.TenDT != null && mb.NhaCC == null && mb.Id == 0)// tên khác null cho người dùng nhập tham số vào tìm kiếm
             {
-                foreach (Mobile mobile in list)
-                    if (mobile.TenDT.IndexOf(mb.TenDT) >= 0)
+                foreach (Mobile mobile in list) // Lặp phần tử trong list
+                    if (mobile.TenDT.IndexOf(mb.TenDT) >= 0)// số lượng so sánh lớn hơn = 0
                     {
-                        kq.Add(new Mobile(mobile));
+                        kq.Add(new Mobile(mobile));// hiển thị kq danh sách tạm thời
                     }
             }
-            // Tim theo que quan
-            else if (mb.TenDT == null && mb.NhaCC != null && mb.Id == 0)
-            {
-                foreach (Mobile mobile in list)
-                    if (mobile.NhaCC.IndexOf(mb.NhaCC) >= 0)
-                    {
-                        kq.Add(new Mobile(mobile));
-                    }
-            }
-            //Tim theo ma
-            else if (mb.TenDT == null && mb.NhaCC == null && mb.Id != 0)
-            {
-                foreach (Mobile mobile in list)
-                    if (mobile.Id == mb.Id)
-                    {
-                        kq.Add(new Mobile(mobile));
-                    }
-            }
+            
             //Tim ket hop giua ho ten va que quan
             else if (mb.TenDT != null && mb.NhaCC != null && mb.Id == 0)
             {
@@ -101,42 +90,42 @@ namespace Demo.Business.Components
                     }
             }
             
-            else kq = null;
-            return kq;
+            else kq = null; // nếu không tìm gì thì trả ra null
+            return kq;// trả ra kết quả tạm thời
         }
 
-        public void ThongKe()
+        public void ThongKe()// Hàm Thống kê điện thoại với phương thức public để dùng trong class FormMobile
         {
-                mbDA.ThongKe();
+                mbDA.ThongKe();// gọi hàm thống kê ở phần DAL để chạy
         }
 
-        public void Sort()
+        public void Sort()// Hàm Sắp xếp điện thoại với phương thức public để dùng trong class FormMobile
         {
             mbDA.Sort();
         }
 
-        void IMobileBLL.Update(Mobile mb)
+        void IMobileBLL.Update(Mobile mb)  // hàm cập nhật xử lí check dùng phương thức public để dùng tại các lớp FormMobile với giá trị đầu vào là đối tượng điện thoại kiểu void trả về ko tham số
         {
-            if (CheckID(mb.Id))
-                mbDA.Update(mb);
+            if (CheckID(mb.Id))//Kiểm tra nếu id là true
+                mbDA.Update(mb);// gọi hàm ở phần DAL để chạy
             else
-                throw new Exception("Khong ton tai ma nay");
+                throw new Exception("Khong ton tai ma nay");// Nếu không có mã thì văng lỗi
         }
 
-        Mobile IMobileBLL.LayMBtheoID(int id)
+        Mobile IMobileBLL.LayMBtheoID(int id)// Hàm lấy thông tin của điện thoại với giá trị nhập vào là id
         {
-            Mobile mb = null;
-            foreach (Mobile mobile in mbDA.GetAllData())
-                if (mobile.Id == id)
+            Mobile mb = null; // Đặt mặc định dữ liệu không có
+            foreach (Mobile mobile in mbDA.GetAllData()) // lặp qua danh sách ở phần DAl để lấy phần tử
+                if (mobile.Id == id)// Nếu kiểm tra thuộc tính ID trùng khớp
                 {
-                    mb = new Mobile(mobile); break;
+                    mb = new Mobile(mobile); break;// Trả ra thông tin của phần tử đó
                 }
-            return mb;
+            return mb;// trả thông tin
         }
 
-        List<Mobile> IMobileBLL.GetThongKe()
+        List<Mobile> IMobileBLL.GetThongKe() // Hàm thống kê 
         {
-            return mbDA.GetThongKe();
+            return mbDA.GetThongKe();// Gọi hàm ở phần DAL để chạy
         }
     }
 }

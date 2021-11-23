@@ -6,12 +6,13 @@ namespace Demo.Entities
 {
     class Mobile
     {
+        // Khai báo các thuộc tính của đối tượng Điện thoại
         private string tenDT, nhaCC, type;
         private double price;
         private int id, sale;
         private int quantum;
 
-
+        // public các thuộc tính của đối tượng Điện thoại để có thể sử dụng ở các class khác
         public string TenDT
         {
             get { return tenDT; }
@@ -77,12 +78,9 @@ namespace Demo.Entities
             }
         }
 
-        public double Tong()
-        {
-            return price * ((100 - sale) / 100);
-        }
+        
 
-
+        // Phương thức khởi tạo đối tượng không tham số
         public Mobile() { }
         //Phương thức thiết lập sao chép
         public Mobile(Mobile mb)
@@ -95,6 +93,7 @@ namespace Demo.Entities
             this.sale = mb.sale;
             this.quantum = mb.quantum;
         }
+        // Thiết lập phương thức khởi tạo đối tượng truyền tham số 
         public Mobile(int id, string tenDT, string nhaCC, string type, double price, int sale, int quantum)
         {
             this.id = id;

@@ -20,12 +20,13 @@ namespace Demo.Entities
                     id = value;
             }
         }
-        public int Soluong {
-            get { return soluong; }
+        public int Sale
+        {
+            get { return sale; }
             set
             {
                 if (value > 0)
-                    soluong = value;
+                    sale = value;
             }
         }
         public string HoTenKH {
@@ -52,25 +53,26 @@ namespace Demo.Entities
                     ngaydat = value;
             }
         }
-        public double Total {
-            get { return (price *(100 -sale)/100) * soluong; }
-            set
-            {
-                if (value > 0)
-                    total = value;
-            }
-        }
+        
 
         public double Price { get => price; set => price = value; }
-        public int Sale {
-            get { return sale; }
+        public int Soluong {
+            get { return soluong; }
             set
             {
                 if (value >= 0)
-                    sale = value;
+                    soluong = value;
             }
         }
-
+        public double Total
+        {
+            get { return (price * (100 - sale) / 100)* soluong; }
+            set
+            {
+                if (value > 0)
+                    total = value ;
+            }
+        }
         // Phương thức khởi tạo đối tượng không tham số
         public HoaDon() { }
 
@@ -96,8 +98,8 @@ namespace Demo.Entities
             this.hoTenKH = hoTenKH;
             this.ngaydat = ngaydat;
             this.price = price;
-            this.sale = sale;
             this.soluong = soluong;
+            this.sale = sale;
             this.total = total;
         }
     }

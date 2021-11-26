@@ -61,7 +61,7 @@ namespace Demo.DataAccessLayer
 
             StreamWriter fwrite = File.AppendText(txtfile); // thêm vào file
             fwrite.WriteLine();
-            fwrite.Write(id + "#" + hd.TenDT + "#" + hd.HoTenKH + "#" + hd.Ngaydat + "#" + hd.Price + "#" + hd.Sale + "#" + hd.Soluong + "#" + hd.Total);  // ghi thông tin điện thoại vào tệp cách nhau bởi dấu "#"
+            fwrite.Write(id + "#" + hd.TenDT + "#" + hd.HoTenKH + "#" + hd.Ngaydat + "#" + hd.Price + "#"  + hd.Soluong + "#" + hd.Sale + "#" + hd.Total);  // ghi thông tin điện thoại vào tệp cách nhau bởi dấu "#"
             fwrite.Close();
         }
       
@@ -72,7 +72,7 @@ namespace Demo.DataAccessLayer
             foreach (HoaDon hd in list)  // lặp qua list
                 if (hd.Id != id) // nếu id của đối tượng hóa đơn khác id nhập
 
-                    fwrite.WriteLine(hd.Id + "#" + hd.TenDT + "#" + hd.HoTenKH + "#" + hd.Ngaydat + "#" + hd.Price + "#" + hd.Sale + "#" + hd.Soluong + "#" + hd.Total); // ghi các id khác loại bỏ id đã nhập
+                    fwrite.WriteLine(hd.Id + "#" + hd.TenDT + "#" + hd.HoTenKH + "#" + hd.Ngaydat + "#" + hd.Price +  "#"  + hd.Soluong + "#" + hd.Sale  + hd.Total); // ghi các id khác loại bỏ id đã nhập
             fwrite.Close();
         }
 
@@ -84,7 +84,7 @@ namespace Demo.DataAccessLayer
 
             StreamWriter fwrite = File.CreateText(txtfile);  // mở file
             foreach (HoaDon hd in list) // Lặp các phần tử trong list
-                fwrite.WriteLine(hd.Id + "#" + hd.TenDT + "#" + hd.HoTenKH + "#" + hd.Ngaydat + "#" + hd.Price + "#" + hd.Sale + "#" + hd.Soluong + "#" + hd.Total); // Cập nhật ghi đè lên thông tin cũ
+                fwrite.WriteLine(hd.Id + "#" + hd.TenDT + "#" + hd.HoTenKH + "#" + hd.Ngaydat + "#" + hd.Price + "#" + hd.Soluong + "#" + hd.Sale + "#" + hd.Total); // Cập nhật ghi đè lên thông tin cũ
 
             fwrite.Close();// đóng file
         }

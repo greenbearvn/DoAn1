@@ -127,5 +127,10 @@ namespace Demo.Business.Components
         {
             return mbDA.GetThongKe();// Gọi hàm ở phần DAL để chạy
         }
+
+        List<Mobile> IMobileBLL.GetSort()
+        {
+            return mbDA.GetSort();
+        }
     }
 }

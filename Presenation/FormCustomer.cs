@@ -39,6 +39,7 @@ namespace Demo.Presenation
                 if ((++d) == n) break;
             }
             Console.WriteLine();
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             Console.Write(tieudecuoi);
             return Console.CursorTop;
         }
@@ -110,7 +111,8 @@ namespace Demo.Presenation
             {
                 Console.Clear();
                 ICustomerBLL customer = new CustomerBLL();
-                HienKH(customer.GetAllData(), 0, 0, "                 DANH SACH HOA DON                  ", "Nhap MA Hoa Don can xoa, thoat nhap 69!", 20);
+                HienKH(customer.GetAllData(), 0, 0, "                 DANH SACH HOA DON                  ", "Thoat nhap 69! \n", 20);
+                Console.Write("Nhập mã khách hàng muốn xóa: ");
                 int id = int.Parse("0" + Console.ReadLine());
                 if (id == 69) return;
                 else customer.Delete(id);
@@ -125,7 +127,8 @@ namespace Demo.Presenation
                 Console.Clear();
                 ICustomerBLL customer = new CustomerBLL();
                 List<Customer> list = customer.TimKH(new Customer(0, tenKH, null, 0, null));
-                HienKH(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhập họ tên khách hàng cần tìm, Nhan vao Enter de thoat!", 30);
+                HienKH(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhan vao Enter de thoat!\n", 30);
+                Console.Write("Nhập tên khách hàng cần tìm: ");
                 tenKH = Console.ReadLine();
                 if (tenKH == "") return;
             } while (true);
@@ -150,6 +153,7 @@ namespace Demo.Presenation
             int v = Console.CursorTop;
             
             ICustomerBLL customer = new CustomerBLL();
+            HienKH(customer.GetAllData(), 0, 10, "                 DANH SACH HOA DON                  ", "Thoat nhap 69! \n", 20);
             Console.SetCursorPosition(12, 4); int id = int.Parse(Console.ReadLine());
             Customer cm = customer.LayKHtheoID(id);
             if (cm != null)

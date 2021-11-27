@@ -10,6 +10,7 @@ namespace Demo.Business.Services
     {
         List<Mobile> GetAllData();// Khai báo phương thức lấy tất cả dữ liệu từ tệp Mobile.txt
         List<Mobile> GetThongKe(); // Khai báo phương thức lấy tất cả dữ liệu đã thống kê từ tệp ThongKe.txt
+        List<Mobile> GetSort();
         void Add(Mobile mb); // Khai báo phương thức thêm thông tin điện thoại với tham số truyền vào là đối tượng điện thoại
         void Delete(int id);// Khai báo phương thức xóa thông tin điện thoại với tham số truyền vào là biến ID không trả lại giá trị
         List<Mobile> Timdt(Mobile mb); // Khai báo phương thức tìm thông tin điện thoại với tham số truyền vào là đối tượng điện thoại

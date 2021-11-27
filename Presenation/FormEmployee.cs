@@ -15,7 +15,7 @@ namespace Demo.Presenation
         {
 
             Console.WriteLine(tieudedau);
-            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+            Console.WriteLine("═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;
             Console.SetCursorPosition(x + 1, y); Console.Write("MaNV");
             Console.SetCursorPosition(x + 8, y); Console.Write("TenNV");
@@ -43,6 +43,7 @@ namespace Demo.Presenation
                 if ((++d) == n) break;
             }
             Console.WriteLine();
+            Console.WriteLine("═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
             Console.Write(tieudecuoi);
             return Console.CursorTop;
         }
@@ -130,7 +131,8 @@ namespace Demo.Presenation
             {
                 Console.Clear();
                 IEmployeeBLL employee = new EmployeeBLL();
-                HienNV(employee.GetAllData(), 0, 0, "                 DANH SACH HOA DON                  ", "Nhap MA Hoa Don can xoa, thoat nhap 69!", 20);
+                HienNV(employee.GetAllData(), 0, 0, "                 DANH SACH HOA DON                  ", "Thoat nhap 69! \n", 20);
+                Console.Write("Nhập mã nhân viên muốn xóa: ");
                 int id = int.Parse("0" + Console.ReadLine());
                 if (id == 69) return;
                 else employee.Delete(id);
@@ -145,7 +147,8 @@ namespace Demo.Presenation
                 Console.Clear();
                 IEmployeeBLL employee = new EmployeeBLL();
                 List<Employee> list = employee.TimNV(new Employee(0, tenNV, null, 0, null,0,0,0,0));
-                HienNV(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhap Ho va Ten KH can tim, Nhan vay Enter de thoat!", 30);
+                HienNV(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhan vay Enter de thoat! \n", 30);
+                Console.Write("Nhập tên nhân viên cần tìm: ");
                 tenNV = Console.ReadLine();
                 if (tenNV == "") return;
             } while (true);
@@ -176,6 +179,7 @@ namespace Demo.Presenation
             int v = Console.CursorTop;
             
             IEmployeeBLL employee = new EmployeeBLL();
+            HienNV(employee.GetAllData(), 0, 10, "                 DANH SACH NHAN VIEN                      ", "", 30);
             Console.SetCursorPosition(12, 2); int id = int.Parse(Console.ReadLine());
             Employee em = employee.LayNVtheoID(id);
             if (em != null)

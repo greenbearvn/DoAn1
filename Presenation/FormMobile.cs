@@ -18,9 +18,10 @@ namespace Demo.Presenation
          int HienMB(List<Mobile> list, int x, int y, string tieudedau, string tieudecuoi, int n)
         { 
             
-            Console.WriteLine();
-            Console.WriteLine();
+            
             Console.WriteLine(tieudedau);// hiển thị tiêu đề
+            
+            
             Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;// đặt cách là 4
             Console.SetCursorPosition(x + 1, y); Console.Write("MADT");// cách lề phải 1, cách trên 4
@@ -28,7 +29,7 @@ namespace Demo.Presenation
             Console.SetCursorPosition(x + 28, y); Console.Write("NHA CC");// cách lề phải 28, cách trên 4
             Console.SetCursorPosition(x + 37, y); Console.Write("LOAI");// cách lề phải 37, cách trên 4
             Console.SetCursorPosition(x + 45, y); Console.Write("GIA");// cách lề phải 45, cách trên 4
-            Console.SetCursorPosition(x + 54, y); Console.Write("SALE");// cách lề phải 54, cách trên 4
+            Console.SetCursorPosition(x + 56, y); Console.Write("SALE");// cách lề phải 54, cách trên 4
             Console.SetCursorPosition(x + 62, y); Console.Write("SO LUONG");// cách lề phải 62, cách trên 4
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)// Lặp qua danh sách để hiển thị các thuộc tính
@@ -39,11 +40,14 @@ namespace Demo.Presenation
                 Console.SetCursorPosition(28, y); Console.Write(list[i].NhaCC);
                 Console.SetCursorPosition(37, y); Console.Write(list[i].Type);
                 Console.SetCursorPosition(45, y); Console.Write(list[i].Price.ToString());
-                Console.SetCursorPosition(54, y); Console.Write(list[i].Sale.ToString());
+                Console.SetCursorPosition(56, y); Console.Write(list[i].Sale.ToString());
                 Console.SetCursorPosition(62, y); Console.Write(list[i].Quantum.ToString());
                 Console.WriteLine();
                 if ((++d) == n) break;//Nếu hiển thị bằng số lượng n thì dừng
             }
+           
+            Console.WriteLine();
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             Console.WriteLine();
             Console.Write(tieudecuoi);// hiển thị tiêu đề cuối
             return Console.CursorTop;
@@ -74,15 +78,17 @@ namespace Demo.Presenation
             {
                 Console.Clear();// Xóa tất cả bắt đầu để hiển thị
                 IMobileBLL mobile = new MobileBLL(); //tạo đối tượng mobile từ MobileBLL để dùng các chức năng từ phần đó
+                HienMB(mobile.GetAllData(), 0, 0, "                 DANH SACH DIEN THOAI                       ", "", 30);
 
-                // gọi hàm hiển thị đã có ở bên trên và truyền giá trị list đã thống kê và các giá trị cần khác
-                HienMB(mobile.GetThongKe(), 0, 0, "                 DANH SACH DIEN THOAI CON HANG                       ", "Nhan vao Enter de thong ke!", 30);
+                HienMB(mobile.GetThongKe(), 0, 10, "                 DANH SACH DIEN THOAI CON HANG                       ", "Nhan vao Enter de thong ke!", 30);// gọi hàm hiển thị đã có ở bên trên và truyền giá trị list đã thống kê và các giá trị cần khác
+
                 ConsoleKeyInfo kt = Console.ReadKey(); // Nhập ký tự
 
                 if (kt.Key == ConsoleKey.Escape) return; // Nếu là phím Esc thì thoát
 
                 else if (kt.Key == ConsoleKey.Enter) // ngược lại nếu nhận là phím Enter 
                     mobile.ThongKe();  // Gọi hàm Thống kê từ MobileBLL
+                
 
             } while (true);//vòng lặp nhập 
         }
@@ -95,9 +101,9 @@ namespace Demo.Presenation
                 Console.Clear(); // Xóa tất cả bắt đầu để hiển thị
 
                 IMobileBLL mobile = new MobileBLL();//tạo đối tượng mobile từ MobileBLL để dùng các chức năng từ phần đó
-
+                HienMB(mobile.GetAllData(), 0, 0, "                 DANH SACH DIEN THOAI                       ", "", 30);
                 // gọi hàm hiển thị đã có ở bên trên và truyền giá trị danh sách lấy tất cả dữ liệu và các giá trị khác
-                HienMB(mobile.GetAllData(), 0, 0, "                 DANH SÁCH ĐIỆN THOẠI ĐÃ SẮP XẾP                      ", "Nhấn ESC để thoát và NHấn vào Enter để sắp xếp!", 30);
+                HienMB(mobile.GetSort(), 0, 12, "                 DANH SÁCH ĐIỆN THOẠI ĐÃ SẮP XẾP                      ", "Nhấn ESC để thoát và NHấn vào Enter để sắp xếp!", 30);
 
                 ConsoleKeyInfo kt = Console.ReadKey(); // Nhập ký tự
 
@@ -115,14 +121,16 @@ namespace Demo.Presenation
             {
                 IMobileBLL mobile = new MobileBLL(); //tạo đối tượng mobile từ MobileBLL để dùng các chức năng từ phần đó
                 Console.Clear();
-                Console.WriteLine("╔═══════════════════════════════════════════════════════════╗ ");
-                Console.WriteLine("║                NHAP THONG TIN DIEN THOAI                  ║");
-                Console.WriteLine("║═══════════════════════════════════════════════════════════║");
-                Console.WriteLine("║                                                           ║");
-                Console.WriteLine("║TEN DT:                    Nha cung cap:                   ║");
-                Console.WriteLine("║                                                           ║");
-                Console.WriteLine("║Loai:          Gia:          Sale:      So luong:          ║");
-                Console.WriteLine("╚═══════════════════════════════════════════════════════════╝  ");
+                Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗ ");
+                Console.WriteLine("║                NHAP THONG TIN DIEN THOAI                      ║");
+                Console.WriteLine("║═══════════════════════════════════════════════════════════════║");
+                Console.WriteLine("║                                                               ║");
+                Console.WriteLine("║TEN DT:                             Nha cung cap:              ║");
+                Console.WriteLine("║                                                               ║");
+                Console.WriteLine("║Loai:                               Gia:                       ║");
+                Console.WriteLine("║                                                               ║");
+                Console.WriteLine("║Sale:                               So luong:                  ║");
+                Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝  ");
                 int x = 0, y = 8;
                 // Hiển thị thông tin danh sách đã nhập
                 int v = HienMB(mobile.GetAllData(),x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 6);
@@ -134,7 +142,7 @@ namespace Demo.Presenation
                 {
                     mb.TenDT = Console.ReadLine();
                 } while (mb.TenDT == "");
-                Console.SetCursorPosition(43, 4);
+                Console.SetCursorPosition(50, 4);
                 do
                 {
                     mb.NhaCC = Console.ReadLine();
@@ -144,17 +152,17 @@ namespace Demo.Presenation
                 {
                     mb.Type = Console.ReadLine();
                 } while (mb.Type == "");
-                Console.SetCursorPosition(22, 6);
+                Console.SetCursorPosition(44, 6);
                 do
                 {
                     mb.Price = double.Parse(Console.ReadLine());
                 } while (mb.Price < 0 );
-                Console.SetCursorPosition(37, 6);
+                Console.SetCursorPosition(7, 8);
                 do
                 {
                     mb.Sale = int.Parse(Console.ReadLine());
                 } while (mb.Sale < 0);
-                Console.SetCursorPosition(52, 6);
+                Console.SetCursorPosition(48, 8);
                 do
                 {
                     mb.Quantum = int.Parse(Console.ReadLine());
@@ -175,7 +183,8 @@ namespace Demo.Presenation
                 IMobileBLL mobile = new MobileBLL(); //tạo đối tượng mobile từ MobileBLL để dùng các chức năng từ phần đó
 
                 // gọi hàm hiển thị đã có ở bên trên và truyền giá trị danh sách lấy tất cả dữ liệu và các giá trị khác
-                HienMB(mobile.GetAllData(),0, 0, "                 DANH SACH DIEN THOAI TRONG KHO                  ", "Nhap MADT can xoa, thoat nhap 69:   ", 20);
+                HienMB(mobile.GetAllData(),0, 0, "                 DANH SACH DIEN THOAI TRONG KHO                  ", "Để thoát chương trình vui lòng nhập số 69:   \n", 20);
+                Console.Write("Nhập mã sản phẩm muốn xóa: ");
                 int id = int.Parse("0" + Console.ReadLine()); // Nhập id xóa
                 if (id == 69) return; // nếu id = 69 thì thoát
                 else mobile.Delete(id); // ngược lại gọi hàm xóa
@@ -195,8 +204,8 @@ namespace Demo.Presenation
                 List<Mobile> list = mobile.Timdt(new Mobile(0, tenDT, null, null, 0, 0,0));
 
                 // gọi hàm hiển thị đã có ở bên trên và truyền giá trị danh sách lấy tất cả dữ liệu và các giá trị khác
-                HienMB(list,0, 0, "                 DANH SACH DIEN THOAI                      ", "Nhap  Ten can tim, Nhan vao Enter de thoat!", 30);
-                
+                HienMB(list,0, 0, "                 DANH SACH DIEN THOAI                      ", "Nhan vao Enter de thoat!\n", 30);
+                Console.Write("Nhập tên sản phẩm cần tìm: ");
                  tenDT = Console.ReadLine(); // Nhập tên điện thoại cần tìm
                 
                 if (tenDT == "") return; // nếu điện thoại bằng sâu rỗng thì thoát
@@ -227,7 +236,7 @@ namespace Demo.Presenation
             int v = Console.CursorTop;// biến con trỏ
             
             IMobileBLL mobile = new MobileBLL(); //tạo đối tượng mobile từ MobileBLL để dùng các chức năng từ phần đó
-
+            HienMB(mobile.GetAllData(), 0, 6, "                 DANH SACH DIEN THOAI                       ", "", 30);
             // Nhập ID cần sửa thông tin 
             Console.SetCursorPosition(12, 3); int id = int.Parse(Console.ReadLine());
             Mobile mb = mobile.LayMBtheoID(id); // hàm hiển thị thông tin điện thoại khi người dùng nhập mã của nó
@@ -285,8 +294,9 @@ namespace Demo.Presenation
                 if (mb.NhaCC != NhaCC && NhaCC != null) mb.NhaCC = NhaCC;
                 if (mb.Type != Type && Type != null) mb.Type = Type;
                 if (mb.Price != Price && Price != 0) mb.Price = Price;
-                if (mb.Sale != Sale && Sale == 0) mb.Sale = Sale;
-                if (mb.Quantum != Quantum ) mb.Quantum = Quantum;
+                if (mb.Sale != Sale && Sale !=0 ) mb.Sale = Sale;
+                if (mb.Quantum != Quantum && Quantum != 0) mb.Quantum = Quantum;
+                
                 //Đợi xem người dùng lựa chọn chức năng gì(thoát hay nhập)
                 Console.SetCursorPosition(33, Console.CursorTop);
                 ConsoleKeyInfo kt = Console.ReadKey();

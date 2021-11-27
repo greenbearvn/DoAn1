@@ -14,7 +14,7 @@ namespace Demo.DataAccessLayer
         private string txtfile = "Data/Mobile.txt"; // Khai báo biến là tệp dữ liệu điện thoại có phương thức là private dùng trong lớp này.
 
         private string f = "Data/ThongKe.txt"; // Khai báo biến là tệp dữ liệu thống kê có phương thức là private dùng trong lớp này.
-
+        private string sort = "Data/Sort.txt";
         public List<Mobile> GetAllData() // Khởi tạo hàm lấy dữ liệu thông tin điện thoại với đối tượng là 1 list điện thoại
         {
             List<Mobile> list = new List<Mobile>();// tạo đối tượng list điện thoại 
@@ -52,7 +52,24 @@ namespace Demo.DataAccessLayer
             fread.Close();
             return list;
         }
-       
+        public List<Mobile> GetSort()
+        {
+            List<Mobile> list = new List<Mobile>();
+            StreamReader fread = File.OpenText(sort);
+            string s = fread.ReadLine();
+            while (s != null)
+            {
+                if (s != "")
+                {
+                    s = Demo.Utility.CongCu.CatXau(s);
+                    string[] a = s.Split('#');
+                    list.Add(new Mobile(int.Parse(a[0]), a[1], a[2], a[3], double.Parse(a[4]), int.Parse(a[5]), int.Parse(a[6])));
+                }
+                s = fread.ReadLine();
+            }
+            fread.Close();
+            return list;
+        }
         public int GetID() // khởi tạo hàm GetID để dùng cho việc đánh mã tự động
         { 
             StreamReader fread = File.OpenText(txtfile); // mở file
@@ -143,7 +160,7 @@ namespace Demo.DataAccessLayer
                         list[i].Price = list[j].Price;
                         list[j].Price = price;
                     }
-                    StreamWriter fwrite = File.CreateText(txtfile); // mở file
+                    StreamWriter fwrite = File.CreateText(sort); // mở file
                     for (int g = 0; g < n; ++g) // lặp phần tử trong list
                         fwrite.WriteLine(list[g].Id + "#" + list[g].TenDT + "#" + list[g].NhaCC + "#" + list[g].Type + "#" + list[g].Price + "#" + list[g].Sale + "#" + list[g].Quantum); // ghi lại thông tin điện thoại đã được sắp xếp
 

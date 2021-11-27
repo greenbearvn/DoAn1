@@ -34,6 +34,7 @@ namespace Demo.Presenation
                 if ((++d) == n) break;
             }
             Console.WriteLine();
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             Console.Write(tieudecuoi);
             return Console.CursorTop;
         }
@@ -95,7 +96,8 @@ namespace Demo.Presenation
             {
                 Console.Clear();
                 IBrandBLL brand = new BrandBLL();
-                HienNCC(brand.GetAllData(), 0, 0, "                 DANH SACH DIEN THOAI TRONG KHO                  ", "Nhap MANCC can xoa, thoat nhap 69:   ", 20);
+                HienNCC(brand.GetAllData(), 0, 0, "                 DANH SACH DIEN NHA CUNG CAP                  ", "Thoat nhap 69:   \n", 20);
+                Console.Write("Nhập mã nhà cung cấp muốn xóa: ");
                 int id = int.Parse("0" + Console.ReadLine());
                 if (id == 69) return;
                 else mobile.Delete(id);
@@ -110,7 +112,8 @@ namespace Demo.Presenation
                 Console.Clear();
                 IBrandBLL brand = new BrandBLL();
                 List<Brand> list = brand.TimNCC(new Brand(0, null, null));
-                HienNCC(list, 0, 0, "                 DANH SACH NHA CUNG CAP                      ", "Nhap Ho va Ten can tim, Nhan vao Enter de thoat!", 30);
+                HienNCC(list, 0, 0, "                 DANH SACH NHA CUNG CAP                      ", "Nhan vao Enter de thoat!\n", 30);
+                Console.Write("Nhập tên nhà cung cấp cần tìm: ");
                 tenNCC = Console.ReadLine();
                 if (tenNCC == "") return;
             } while (true);
@@ -133,6 +136,7 @@ namespace Demo.Presenation
             int v = Console.CursorTop;
             
             IBrandBLL brand = new BrandBLL();
+            HienNCC(brand.GetAllData(), 0, 10, "                 DANH SACH NHÀ CUNG CẤP                  ", "", 20);
             Console.SetCursorPosition(12, 3); int id = int.Parse(Console.ReadLine());
             Brand br = brand.LayNCCtheoID(id);
             if (br != null)

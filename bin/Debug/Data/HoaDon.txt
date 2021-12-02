@@ -1,4 +1,4 @@
 
-1#Iphone 13#Asdaw#Wacascs#2000000#1#0#0
-2#Dsada#Fadfaw#Fafa#3000000#1#20#2400000
-3#Sfazwfcz#Adad#Ggdsgrsfg#1000000#1#0#1000000
+1#Poco X3 Pro#Vu Thanh Hung#28/12/2021#5500000#1#0#5500000
+2#Iphone 13 Pro Max#Vu Thanh Hung#21/12/2021#39999999#1#20#31999999.2
+3#Galaxy Z Flip 3#Vu Thanh Hung#09/07/2021#30000000#2#10#54000000

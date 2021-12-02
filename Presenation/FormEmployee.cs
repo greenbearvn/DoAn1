@@ -17,28 +17,28 @@ namespace Demo.Presenation
             Console.WriteLine(tieudedau);
             Console.WriteLine("═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;
-            Console.SetCursorPosition(x + 1, y); Console.Write("MaNV");
-            Console.SetCursorPosition(x + 8, y); Console.Write("TenNV");
-            Console.SetCursorPosition(x + 25, y); Console.Write("Dia Chi");
-            Console.SetCursorPosition(x + 40, y); Console.Write("Tuoi");
-            Console.SetCursorPosition(x + 55, y); Console.Write("So DT");
-            Console.SetCursorPosition(x + 70, y); Console.Write("Luong co ban");
-            Console.SetCursorPosition(x + 85, y); Console.Write("He so luong");
-            Console.SetCursorPosition(x + 100, y); Console.Write("Phu Cap");
-            Console.SetCursorPosition(x + 110, y); Console.Write("Tong Luong");
+            Console.SetCursorPosition(x + 1, y); Console.Write("║ MaNV");
+            Console.SetCursorPosition(x + 8, y); Console.Write("║ TenNV");
+            Console.SetCursorPosition(x + 25, y); Console.Write("║ Dia Chi");
+            Console.SetCursorPosition(x + 40, y); Console.Write("║ Tuoi");
+            Console.SetCursorPosition(x + 55, y); Console.Write("║ So DT");
+            Console.SetCursorPosition(x + 70, y); Console.Write("║ Luong co ban");
+            Console.SetCursorPosition(x + 85, y); Console.Write("║ He so luong");
+            Console.SetCursorPosition(x + 100, y); Console.Write("║ Phu Cap");
+            Console.SetCursorPosition(x + 110, y); Console.Write("║ Tong Luong");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
             {
                 y = y + 1;
-                Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
-                Console.SetCursorPosition(8, y); Console.Write(list[i].Name);
-                Console.SetCursorPosition(25, y); Console.Write(list[i].Address);
-                Console.SetCursorPosition(40, y); Console.Write(list[i].Age.ToString());
-                Console.SetCursorPosition(55, y); Console.Write(list[i].Numberphone);
-                Console.SetCursorPosition(70, y); Console.Write(list[i].Luongcoban.ToString());
-                Console.SetCursorPosition(85, y); Console.Write(list[i].Hesoluong.ToString());
-                Console.SetCursorPosition(100, y); Console.Write(list[i].Phucap.ToString());
-                Console.SetCursorPosition(110, y); Console.Write(list[i].Tinhluong.ToString());
+                Console.SetCursorPosition(1, y); Console.Write("║ " + list[i].Id.ToString());
+                Console.SetCursorPosition(8, y); Console.Write("║ " + list[i].Name);
+                Console.SetCursorPosition(25, y); Console.Write("║ " + list[i].Address);
+                Console.SetCursorPosition(40, y); Console.Write("║ " + list[i].Age.ToString());
+                Console.SetCursorPosition(55, y); Console.Write("║ " + list[i].Numberphone);
+                Console.SetCursorPosition(70, y); Console.Write("║ " + list[i].Luongcoban.ToString());
+                Console.SetCursorPosition(85, y); Console.Write("║ " + list[i].Hesoluong.ToString());
+                Console.SetCursorPosition(100, y); Console.Write("║ " + list[i].Phucap.ToString());
+                Console.SetCursorPosition(110, y); Console.Write("║ " + list[i].Tinhluong.ToString());
                 Console.WriteLine();
                 if ((++d) == n) break;
             }

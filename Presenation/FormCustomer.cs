@@ -21,20 +21,20 @@ namespace Demo.Presenation
             Console.WriteLine(tieudedau);
             Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;
-            Console.SetCursorPosition(x + 1, y); Console.Write("MaKH");
-            Console.SetCursorPosition(x + 8, y); Console.Write("TenKH");
-            Console.SetCursorPosition(x + 25, y); Console.Write("Dia Chi");
-            Console.SetCursorPosition(x + 40, y); Console.Write("Tuoi");
-            Console.SetCursorPosition(x + 50, y); Console.Write("So DT");
+            Console.SetCursorPosition(x + 1, y); Console.Write("║ MaKH");
+            Console.SetCursorPosition(x + 8, y); Console.Write("║ TenKH");
+            Console.SetCursorPosition(x + 25, y); Console.Write("║ Dia Chi");
+            Console.SetCursorPosition(x + 40, y); Console.Write("║ Tuoi");
+            Console.SetCursorPosition(x + 50, y); Console.Write("║ So DT");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
             {
                 y = y + 1;
-                Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
-                Console.SetCursorPosition(8, y); Console.Write(list[i].Name);
-                Console.SetCursorPosition(25, y); Console.Write(list[i].Address);
-                Console.SetCursorPosition(40, y); Console.Write(list[i].Age.ToString());
-                Console.SetCursorPosition(50, y); Console.Write(list[i].Numberphone);
+                Console.SetCursorPosition(1, y); Console.Write("║ " + list[i].Id.ToString());
+                Console.SetCursorPosition(8, y); Console.Write("║ " + list[i].Name);
+                Console.SetCursorPosition(25, y); Console.Write("║ " + list[i].Address);
+                Console.SetCursorPosition(40, y); Console.Write("║ " + list[i].Age.ToString());
+                Console.SetCursorPosition(50, y); Console.Write("║ " + list[i].Numberphone);
                 Console.WriteLine();
                 if ((++d) == n) break;
             }

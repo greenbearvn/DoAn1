@@ -8,6 +8,7 @@ namespace Demo.Presenation
     //Trình bày dữ liệu cho đẹp
     public class MenuBrand : Menu
     {
+        private App mn = new App();
         public MenuBrand(string[] cs) : base(cs) { }
         public override void ThucHien(int vitri)
         {
@@ -30,10 +31,8 @@ namespace Demo.Presenation
                 case 4:
                     customer.SuaNCC();
                     break;
-
-
                 case 5:
-                    Environment.Exit(0);
+                    mn.Main();
                     break;
 
             }

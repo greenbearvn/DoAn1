@@ -6,10 +6,10 @@ using Demo.Utility;
 namespace Demo.Presenation
 {
     //Trình bày dữ liệu cho đẹp
-    public class MenuHoaDon : Menu // Kế thừa từ lớp menu chính
+    public class MenuRevenue : Menu // Kế thừa từ lớp menu chính
     {
         private App mn = new App();
-        public MenuHoaDon(string[] aa) : base(aa) { } // gọi hàm khởi tạo không tham số của lớp cha
+        public MenuRevenue(string[] rv) : base(rv) { } // gọi hàm khởi tạo không tham số của lớp cha
         public override void ThucHien(int vitri) // ghi đè lên hàm thực hiện của lớp cha
         {
             FormHoaDon hoadon = new FormHoaDon(); // tạo đối tượng hoadon sử dụng các chức năng của FormHoaDon
@@ -17,26 +17,20 @@ namespace Demo.Presenation
             switch (vitri)
             {
                 case 0:
-                    hoadon.NhapHD(); // Gọi hàm Nhập 
+                    hoadon.DoanhThu(); // Gọi hàm Nhập 
                     break;
                 case 1:
-                    hoadon.Hien(); // gọi hàm hiển thị
+                    hoadon.DoanhThuThang(); // gọi hàm hiển thị
                     break;
                 case 2:
-                    hoadon.TimHD(); // gọi hàm tìm
+                    hoadon.DoanhThuNgay(); // gọi hàm menu chính
                     break;
                 case 3:
-                    hoadon.XoaHD(); // gọi hàm xóa
+                    mn.Main(); // gọi hàm menu chính
                     break;
-                case 4:
-                    hoadon.SuaHD(); // gọi hàm sửa thông tin
-                    break;
-                case 5:
-                    mn.Main(); // gọi hàm Sắp xếp
-                    break;
+
 
             }
         }
     }
 }
-

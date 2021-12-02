@@ -8,6 +8,7 @@ namespace Demo.Presenation
     //Trình bày dữ liệu cho đẹp
     public class MenuMobile : Menu // Kế thừa từ lớp menu chính
     {
+        private App mn = new App();
         public MenuMobile(string[] mn) : base(mn) { } // gọi hàm khởi tạo không tham số của lớp cha
         public override void ThucHien(int vitri) // ghi đè lên hàm thực hiện của lớp cha
         {
@@ -37,7 +38,7 @@ namespace Demo.Presenation
                     mobile.Sort(); // gọi hàm Sắp xếp
                     break;
                 case 7:
-                    Environment.Exit(0); // thoát chương trình
+                    mn.Main(); // thoát chương trình
                     break;
 
             } 

@@ -15,5 +15,8 @@ namespace Demo.Business.Services
         List<HoaDon> TimHD(HoaDon hd); // Khai báo phương thức tìm thông tin hóa đơn với tham số truyền vào là đối tượng hóa đơn
         void Update(HoaDon id); // Khai báo phương thức cập nhật thông tin hóa đơn với tham số truyền vào là thuộc tính ID của đối tượng hóa đơn không trả lại giá trị
         HoaDon LayHDtheoID(int id); // Khai báo phương thức lấy thông tin hóa đơn có tham số  truyền vào là id
+        double TongDoanhThu();
+        double DoanhThuThang(string month, string year);
+        double DoanhThuNgay(string day, string month,string year);
     }
 }

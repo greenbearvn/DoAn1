@@ -27,26 +27,26 @@ namespace Demo.Presenation
             Console.WriteLine(tieudedau);
             Console.WriteLine("═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;
-            Console.SetCursorPosition(x + 1, y); Console.Write("MaHD");
-            Console.SetCursorPosition(x + 6, y); Console.Write("Ten DT");
-            Console.SetCursorPosition(x + 25 , y); Console.Write("Ho Ten KH");
-            Console.SetCursorPosition(x + 50 , y); Console.Write("Ngày đặt");
-            Console.SetCursorPosition(x + 70 , y); Console.Write("Giá");
-            Console.SetCursorPosition(x + 85 , y); Console.Write("Sale");
-            Console.SetCursorPosition(x + 100, y); Console.Write("So Luong");
-            Console.SetCursorPosition(x + 110 , y); Console.Write("Tổng");
+            Console.SetCursorPosition(x + 1, y); Console.Write("║ MaHD");
+            Console.SetCursorPosition(x + 6, y); Console.Write("║ Ten DT");
+            Console.SetCursorPosition(x + 25 , y); Console.Write("║ Ho Ten KH");
+            Console.SetCursorPosition(x + 50 , y); Console.Write("║ Ngày đặt");
+            Console.SetCursorPosition(x + 70 , y); Console.Write("║ Giá");
+            Console.SetCursorPosition(x + 85 , y); Console.Write("║ Sale");
+            Console.SetCursorPosition(x + 95, y); Console.Write("║ So Luong");
+            Console.SetCursorPosition(x + 110 , y); Console.Write("║ Tổng  ");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i) // Lặp qua danh sách để hiển thị các thuộc tính
             {
                 y = y + 1;
-                Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
-                Console.SetCursorPosition(6, y); Console.Write(list[i].TenDT);
-                Console.SetCursorPosition(25, y); Console.Write(list[i].HoTenKH);
-                Console.SetCursorPosition(50, y); Console.Write(list[i].Ngaydat);
-                Console.SetCursorPosition(70, y); Console.Write(list[i].Price.ToString());
-                Console.SetCursorPosition(85, y); Console.Write(list[i].Sale.ToString());
-                Console.SetCursorPosition(100, y); Console.Write(list[i].Soluong.ToString());
-                Console.SetCursorPosition(110, y); Console.Write(list[i].Total.ToString());
+                Console.SetCursorPosition(1, y); Console.Write("║ " + list[i].Id.ToString());
+                Console.SetCursorPosition(6, y); Console.Write("║ " + list[i].TenDT);
+                Console.SetCursorPosition(25, y); Console.Write("║ " + list[i].HoTenKH);
+                Console.SetCursorPosition(50, y); Console.Write("║ " + list[i].Ngaydat);
+                Console.SetCursorPosition(70, y); Console.Write("║ " + list[i].Price.ToString());
+                Console.SetCursorPosition(85, y); Console.Write("║ " + list[i].Sale.ToString());
+                Console.SetCursorPosition(95, y); Console.Write("║ " + list[i].Soluong.ToString());
+                Console.SetCursorPosition(110, y); Console.Write("║ " + list[i].Total.ToString());
                 Console.WriteLine();
                 if ((++d) == n) break; //Nếu hiển thị bằng số lượng n thì dừng
             }
@@ -131,27 +131,43 @@ namespace Demo.Presenation
 
                 Console.WriteLine();
                 Console.WriteLine("═════════════════════════════════════════════════════════════════════");
-                Console.WriteLine("                        HÓA ĐƠN BÁN HÀNG                     ");
-                Console.WriteLine("                                                             ");
-                Console.WriteLine("      Tên sản phẩm: " + hd.TenDT + "                         ");
-                Console.WriteLine("                                                             ");
-                Console.WriteLine("      Họ tên khách hàng: " + hd.HoTenKH + "                  ");
-                Console.WriteLine("                                                             ");
-                Console.WriteLine("      Ngày đặt hàng: " + hd.Ngaydat + "                      ");
-                Console.WriteLine("                                                             ");
-                Console.WriteLine("      Giá: " + hd.Price + "                                  ");
-                Console.WriteLine("                                                             ");
-                Console.WriteLine("      Số lượng: " + hd.Soluong + "                           ");
-                Console.WriteLine("                                                             ");
-                Console.WriteLine("      Sale: " + hd.Sale + "                                  ");
-                Console.WriteLine("                                                              ");
-                Console.WriteLine("║═════════════════════════════════════════════════════════════════════║");
-                Console.WriteLine("║                        Tổng tiền: " + hd.Total + "                  ║");
-                Console.WriteLine("╚═════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("                        HÓA ĐƠN BÁN HÀNG                             ");
+                Console.WriteLine("═════════════════════════════════════════════════════════════════════");
+                Console.WriteLine("      Tên sản phẩm: " + hd.TenDT + "                                 ");
+                Console.WriteLine("                                                                      ");
+                Console.WriteLine("      Họ tên khách hàng: " + hd.HoTenKH + "                          ");
+                Console.WriteLine("                                                                      ");
+                Console.WriteLine("      Ngày đặt hàng: " + hd.Ngaydat + "                               ");
+                Console.WriteLine("                                                                      ");
+                Console.WriteLine("      Giá: " + hd.Price + "                                           ");
+                Console.WriteLine("                                                                       ");
+                Console.WriteLine("      Số lượng: " + hd.Soluong + "                                    ");
+                Console.WriteLine("                                                                       ");
+                Console.WriteLine("      Sale: " + hd.Sale + "                                              ");
+                Console.WriteLine("                                                                         ");
+                Console.WriteLine("═════════════════════════════════════════════════════════════════════");
+                Console.WriteLine("                        Tổng tiền: " + hd.Total + "                  ");
+                Console.WriteLine("═════════════════════════════════════════════════════════════════════");
                 ConsoleKeyInfo kt = Console.ReadKey(); // Nhập Ký tự
+                Console.WriteLine("Nhấn Enter để lưu, nhấn phím Backspace để thoát, nhấn phím Cách để tiến hành trả góp !");
                 if (kt.Key == ConsoleKey.Backspace) return exit; // Nếu ấn Backspace là thoát
                 else if (kt.Key == ConsoleKey.Enter) // Nhấn Enter
                     hoadon.Add(hd); // Gọi hàm thêm MobileBLL
+                else if(kt.Key == ConsoleKey.Spacebar)
+                {
+                    
+                    double i = hd.Total ;
+                    int count = 0;
+                    while(i >= 0)
+                    {
+                        i *= 0.1;
+                        i--;
+                        count += 1;
+                        
+                    }
+                    Console.WriteLine("ban phai tra trong vong " + count + " thang");
+                    Console.ReadLine();
+                }
 
             } while (true);
         }
@@ -188,6 +204,80 @@ namespace Demo.Presenation
                 Console.Write("Nhập tên sản phẩm cần tìm: ");
                 tenHD = Console.ReadLine(); // Nhập tên hóa đơn cần tìm
                 if (tenHD == "") return; // nếu hóa đơn bằng sâu rỗng thì thoát
+            } while (true);
+        }
+
+        public void DoanhThu()
+        {
+            string tenHD = ""; // gán tìm tên bằng xâu rỗng
+            do
+            {
+                Console.Clear();
+                IHoaDonBLL hoadon = new HoaDonBLL(); //tạo đối tượng hoandon từ HoaDonBLL để dùng các chức năng từ phần đó
+
+                // khởi tạo đối tượng list được lấy dữ liệu từ hàm tìm có các tham số truyền vào
+                
+
+                // gọi hàm hiển thị đã có ở bên trên và truyền giá trị danh sách lấy tất cả dữ liệu và các giá trị khác
+                HienHD(mobile.GetAllData(), 0, 0, "                 DANH SACH HOA DON                      ", "Nhan vào Enter de thoat! \n", 30);
+                Console.Write("Tống doanh thu của cửa hàng là: ");
+                Console.WriteLine(hoadon.TongDoanhThu());
+                tenHD = Console.ReadLine(); // Nhập tên hóa đơn cần tìm
+                if (tenHD == "") return; // nếu hóa đơn bằng sâu rỗng thì thoát
+            } while (true);
+        }
+
+        public void DoanhThuThang()
+        {
+            string month = ""; // gán tìm tên bằng xâu rỗng
+            string year = "";
+            do
+            {
+                Console.Clear();
+                IHoaDonBLL hoadon = new HoaDonBLL(); //tạo đối tượng hoandon từ HoaDonBLL để dùng các chức năng từ phần đó
+
+                // khởi tạo đối tượng list được lấy dữ liệu từ hàm tìm có các tham số truyền vào
+
+
+                // gọi hàm hiển thị đã có ở bên trên và truyền giá trị danh sách lấy tất cả dữ liệu và các giá trị khác
+                HienHD(mobile.GetAllData(), 0, 0, "                 DANH SACH HOA DON                      ", "Nhan vào Enter de thoat! \n", 30);
+                Console.Write("Nhập tháng muốn thống kê doanh thu: ");
+                month = Console.ReadLine();
+                Console.Write("Nhập năm muốn thống kê doanh thu: ");
+                year = Console.ReadLine();
+                if (month == "") return; // nếu hóa đơn bằng sâu rỗng thì thoát
+                else
+                    Console.Write("Tống doanh thu của cửa hàng tháng {0} năm {1} là: ", month, year);
+                    Console.WriteLine(hoadon.DoanhThuThang(month,year));
+                    Console.ReadLine();
+            } while (true);
+        }
+        public void DoanhThuNgay()
+        {
+            string day = ""; // gán tìm tên bằng xâu rỗng
+            string month = "";
+            string year = "";
+            do
+            {
+                Console.Clear();
+                IHoaDonBLL hoadon = new HoaDonBLL(); //tạo đối tượng hoandon từ HoaDonBLL để dùng các chức năng từ phần đó
+
+                // khởi tạo đối tượng list được lấy dữ liệu từ hàm tìm có các tham số truyền vào
+
+
+                // gọi hàm hiển thị đã có ở bên trên và truyền giá trị danh sách lấy tất cả dữ liệu và các giá trị khác
+                HienHD(mobile.GetAllData(), 0, 0, "                 DANH SACH HOA DON                      ", "Nhan vào Enter de thoat! \n", 30);
+                Console.Write("Nhập ngày muốn thống kê doanh thu: ");
+                day = Console.ReadLine();
+                Console.Write("Nhập tháng muốn thống kê doanh thu: ");
+                month = Console.ReadLine();
+                Console.Write("Nhập năm muốn thống kê doanh thu: ");
+                year = Console.ReadLine();
+                if (day == "") return; // nếu hóa đơn bằng sâu rỗng thì thoát
+                else
+                    Console.Write("Tống doanh thu của cửa hàng ngày {0} tháng {1} năm {2} là: ", day,month,year);
+                Console.WriteLine(hoadon.DoanhThuNgay(day,month,year));
+                Console.ReadLine();
             } while (true);
         }
 

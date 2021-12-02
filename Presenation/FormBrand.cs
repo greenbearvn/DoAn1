@@ -20,16 +20,16 @@ namespace Demo.Presenation
             Console.WriteLine(tieudedau);
             Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;
-            Console.SetCursorPosition(x + 1, y); Console.Write("MA NhaCC");
-            Console.SetCursorPosition(x + 15, y); Console.Write("Ten Ncc");
-            Console.SetCursorPosition(x + 30, y); Console.Write("Dia Chi");
+            Console.SetCursorPosition(x + 1, y); Console.Write("║ MA NhaCC");
+            Console.SetCursorPosition(x + 15, y); Console.Write("║ Ten Ncc");
+            Console.SetCursorPosition(x + 30, y); Console.Write("║ Dia Chi");
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)
             {
                 y = y + 1;
-                Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
-                Console.SetCursorPosition(15, y); Console.Write(list[i].Name);
-                Console.SetCursorPosition(30, y); Console.Write(list[i].Diachi);
+                Console.SetCursorPosition(1, y); Console.Write("║ " + list[i].Id.ToString());
+                Console.SetCursorPosition(15, y); Console.Write("║ " + list[i].Name);
+                Console.SetCursorPosition(30, y); Console.Write("║ " + list[i].Diachi);
                 Console.WriteLine();
                 if ((++d) == n) break;
             }

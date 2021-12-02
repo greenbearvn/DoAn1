@@ -21,7 +21,7 @@ namespace Demo.Presenation
                             " 5.Thống kê điện thoại còn hàng ",
                             " 6.Cập nhật thông tin điện thoại theo mã ",
                             " 7.Sắp xếp danh sách điện thoại theo mã ",
-                            " 8.Kết thúc"
+                            " 8.Quay lại Menu chính"
                         };
             Demo.Presenation.MenuMobile mndemo = new Demo.Presenation.MenuMobile(mn);
             
@@ -31,7 +31,7 @@ namespace Demo.Presenation
                             " 3.Tìm kiếm hóa đơn",
                             " 4.Xóa thông tin hóa đơn theo mã",
                             " 5.Cập nhật thông tin hóa đơn theo mã ",
-                            " 6.Kết thúc "
+                            " 6.Quay lại Menu chính"
                         };
             Demo.Presenation.MenuHoaDon aademo = new Demo.Presenation.MenuHoaDon(aa);
 
@@ -51,7 +51,7 @@ namespace Demo.Presenation
                             " 3.Tìm kiếm thông tin nhân viên",
                             " 4.Xóa hông tin nhân viên theo mã",
                             " 5.Cập nhật thông tin nhân viên theo mã ",
-                            " 6.Kết thúc "
+                            " 6.Quay lại Menu chính"
 
                         };
             Demo.Presenation.MenuEmployee emdemo = new Demo.Presenation.MenuEmployee(em);
@@ -62,10 +62,19 @@ namespace Demo.Presenation
                             " 3.Tìm kiếm thông tin nhà cung cấp",
                             " 4.Xoa thong tin nha cung cap theo ma",
                             " 5.Cập nhật thông tin nhà cung cấp theo mã ",
-                            " 6.Kết thúc "
+                            " 6.Quay lại Menu chính"
 
                         };
             Demo.Presenation.MenuBrand aaa = new Demo.Presenation.MenuBrand(br);
+
+            string[] rv ={
+                            " 1.Thống kê doanh thu của cửa hàng",
+                            " 2.Doanh thu của cửa hàng trong tháng và năm",
+                            " 3.Doanh thu của cửa hàng trong ngày tháng năm",
+                            " 4.Quay lại Menu chính"
+
+                        };
+            Demo.Presenation.MenuRevenue bbb = new Demo.Presenation.MenuRevenue(rv);
 
             switch (vitri)
             {
@@ -83,6 +92,9 @@ namespace Demo.Presenation
                     break;
                 case 4:
                     aaa.HienMeNu(10, 10, ConsoleColor.Black, ConsoleColor.DarkGreen, ConsoleColor.DarkBlue, ConsoleColor.White);
+                    break;
+                case 5:
+                    bbb.HienMeNu(10, 10, ConsoleColor.Black, ConsoleColor.DarkGreen, ConsoleColor.DarkBlue, ConsoleColor.White);
                     break;
                 case 6:
                     Environment.Exit(0);

@@ -36,6 +36,8 @@ namespace Demo.Business.Components
             return ok; // trả ra true nếu có id hoặc false nếu ko có id
         }
 
+        
+
         //  Hàm lấy toàn bộ dữ liệu từ tệp
         List<HoaDon> IHoaDonBLL.GetAllData()
         {
@@ -101,6 +103,34 @@ namespace Demo.Business.Components
             return hd;
         }
 
-        
+        double IHoaDonBLL.TongDoanhThu()
+        {
+            double tong = 0;
+            foreach (HoaDon hd in hdDA.GetAllData()) // Lặp qua danh sách hóa đơn trong DAL lấy thuộc tính của phần tử
+                tong += hd.Total;
+            return tong; // trả ra true nếu có id hoặc false nếu ko có id
+        }
+
+        public double DoanhThuThang(string month, string year)
+        {
+            double tong = 0;
+            foreach (HoaDon hd in hdDA.GetAllData()) // Lặp qua danh sách hóa đơn trong DAL lấy thuộc tính của phần tử
+                if (hd.Ngaydat.Substring(3, 2) == month && hd.Ngaydat.Substring(6, 4) == year) // Nếu kiểm tra thuộc tính ID trùng khớp
+                {
+                    tong += hd.Total; 
+                }
+            return tong;
+        }
+
+        public double DoanhThuNgay(string day, string month, string year)
+        {
+            double tong = 0;
+            foreach (HoaDon hd in hdDA.GetAllData()) // Lặp qua danh sách hóa đơn trong DAL lấy thuộc tính của phần tử
+                if (hd.Ngaydat.Substring(0, 2) == day && hd.Ngaydat.Substring(3,2) == month && hd.Ngaydat.Substring(6, 4) == year) 
+                {
+                    tong += hd.Total; 
+                }
+            return tong;
+        }
     }
 }

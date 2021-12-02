@@ -24,24 +24,24 @@ namespace Demo.Presenation
             
             Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
             y = y + 4;// đặt cách là 4
-            Console.SetCursorPosition(x + 1, y); Console.Write("MADT");// cách lề phải 1, cách trên 4
-            Console.SetCursorPosition(x + 7, y); Console.Write("Ten DT");// cách lề phải 7, cách trên 4
-            Console.SetCursorPosition(x + 28, y); Console.Write("NHA CC");// cách lề phải 28, cách trên 4
-            Console.SetCursorPosition(x + 37, y); Console.Write("LOAI");// cách lề phải 37, cách trên 4
-            Console.SetCursorPosition(x + 45, y); Console.Write("GIA");// cách lề phải 45, cách trên 4
-            Console.SetCursorPosition(x + 56, y); Console.Write("SALE");// cách lề phải 54, cách trên 4
-            Console.SetCursorPosition(x + 62, y); Console.Write("SO LUONG");// cách lề phải 62, cách trên 4
+            Console.SetCursorPosition(x + 1, y); Console.Write("║ MADT ");// cách lề phải 1, cách trên 4
+            Console.SetCursorPosition(x + 7, y); Console.Write("║ Ten DT ");// cách lề phải 7, cách trên 4
+            Console.SetCursorPosition(x + 28, y); Console.Write("║ NHA CC ");// cách lề phải 28, cách trên 4
+            Console.SetCursorPosition(x + 37, y); Console.Write("║ LOAI ");// cách lề phải 37, cách trên 4
+            Console.SetCursorPosition(x + 45, y); Console.Write("║ GIA ");// cách lề phải 45, cách trên 4
+            Console.SetCursorPosition(x + 56, y); Console.Write("║ SALE ");// cách lề phải 54, cách trên 4
+            Console.SetCursorPosition(x + 62, y); Console.Write("║ SO LUONG ");// cách lề phải 62, cách trên 4
             int d = 0;
             for (int i = list.Count - 1; i >= 0; --i)// Lặp qua danh sách để hiển thị các thuộc tính
             {
                 y = y + 1;
-                Console.SetCursorPosition(1, y); Console.Write(list[i].Id.ToString());
-                Console.SetCursorPosition(7, y); Console.Write(list[i].TenDT);
-                Console.SetCursorPosition(28, y); Console.Write(list[i].NhaCC);
-                Console.SetCursorPosition(37, y); Console.Write(list[i].Type);
-                Console.SetCursorPosition(45, y); Console.Write(list[i].Price.ToString());
-                Console.SetCursorPosition(56, y); Console.Write(list[i].Sale.ToString());
-                Console.SetCursorPosition(62, y); Console.Write(list[i].Quantum.ToString());
+                Console.SetCursorPosition(1, y); Console.Write("║ " + list[i].Id.ToString());
+                Console.SetCursorPosition(7, y); Console.Write("║ " + list[i].TenDT);
+                Console.SetCursorPosition(28, y); Console.Write("║ " + list[i].NhaCC);
+                Console.SetCursorPosition(37, y); Console.Write("║ " + list[i].Type);
+                Console.SetCursorPosition(45, y); Console.Write("║ " + list[i].Price.ToString());
+                Console.SetCursorPosition(56, y); Console.Write("║ " + list[i].Sale.ToString());
+                Console.SetCursorPosition(62, y); Console.Write("║ " + list[i].Quantum.ToString());
                 Console.WriteLine();
                 if ((++d) == n) break;//Nếu hiển thị bằng số lượng n thì dừng
             }
@@ -103,13 +103,16 @@ namespace Demo.Presenation
                 IMobileBLL mobile = new MobileBLL();//tạo đối tượng mobile từ MobileBLL để dùng các chức năng từ phần đó
                 HienMB(mobile.GetAllData(), 0, 0, "                 DANH SACH DIEN THOAI                       ", "", 30);
                 // gọi hàm hiển thị đã có ở bên trên và truyền giá trị danh sách lấy tất cả dữ liệu và các giá trị khác
-                HienMB(mobile.GetSort(), 0, 12, "                 DANH SÁCH ĐIỆN THOẠI ĐÃ SẮP XẾP                      ", "Nhấn ESC để thoát và NHấn vào Enter để sắp xếp!", 30);
 
+                HienMB(mobile.GetSort(), 0, 12, "                 DANH SÁCH ĐIỆN THOẠI ĐÃ SẮP XẾP                      ", " Nhấn ESC để thoát \n Nhấn vào Enter để sắp xếp giá giảm dần \n Nhấn phím Cách để sắp xếp tăng dần! \n", 30);
                 ConsoleKeyInfo kt = Console.ReadKey(); // Nhập ký tự
 
                 if (kt.Key == ConsoleKey.Escape) return; // Nếu là phím Esc thì thoát
                 else if (kt.Key == ConsoleKey.Enter) //ngược lại nếu nhận là phím Enter
                     mobile.Sort();  // Gọi hàm Sắp xếp từ MobileBLL
+                else if (kt.Key == ConsoleKey.Spacebar) //ngược lại nếu nhận là phím Enter
+                    mobile.SortPriceUp();
+                HienMB(mobile.GetSort(), 0, 12, "                 DANH SÁCH ĐIỆN THOẠI ĐÃ SẮP XẾP                      ", "", 30);
             } while (true);
         }
 

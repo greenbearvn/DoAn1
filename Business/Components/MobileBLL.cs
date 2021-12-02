@@ -132,5 +132,10 @@ namespace Demo.Business.Components
         {
             return mbDA.GetSort();
         }
+
+        public void SortPriceUp()
+        {
+            mbDA.SortPriceUp();
+        }
     }
 }

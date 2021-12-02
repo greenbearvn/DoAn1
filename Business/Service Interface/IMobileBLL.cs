@@ -19,5 +19,6 @@ namespace Demo.Business.Services
         void Update(Mobile id);// Khai báo phương thức cập nhật thông tin điện thoại với tham số truyền vào là thuộc tính ID của đối tượng điện thoại không trả lại giá trị
         Mobile LayMBtheoID(int id);// Khai báo phương thức lấy thông tin điện thoại có tham số  truyền vào là id
         void Sort();// Khai báo phương thức Sắp xếp điện thoại còn hàng không trả về giá trị 
+        void SortPriceUp();// Khai báo phương thức Sắp xếp điện thoại còn hàng không trả về giá trị 
     }
 }

@@ -8,6 +8,7 @@ namespace Demo.Presenation
     //Trình bày dữ liệu cho đẹp
     public class MenuEmployee : Menu
     {
+        private App mn = new App();
         public MenuEmployee(string[] em) : base(em) { }
         public override void ThucHien(int vitri)
         {
@@ -31,7 +32,7 @@ namespace Demo.Presenation
                     employee.SuaNV();
                     break;
                 case 5:
-                    Environment.Exit(0);
+                    mn.Main(); 
                     break;
 
             }

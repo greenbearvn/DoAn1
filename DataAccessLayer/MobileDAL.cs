@@ -147,7 +147,9 @@ namespace Demo.DataAccessLayer
         {
             List<Mobile> list = GetAllData(); // gán hàm lấy toàn bộ dữ liệu từ tệp là list
             int n = list.Count;// lấy độ dài của list
+            string tendt, nhacc, type;
             double price;// biến trung gian so sánh
+            int sale, quantum;
             for (int i = 0; i < n-1; i++) // Lặp qua list điện thoại
             {
                 int min = i; // vị trí đầu tiên
@@ -155,10 +157,30 @@ namespace Demo.DataAccessLayer
                 {
                     if (list[j].Price < list[min].Price)// Nếu vị trí đầu lớn hơn vị trí sau
                     {
-                       // Thao tác trung gian đổi vị trí
+                        // Thao tác trung gian đổi vị trí
+                        tendt = list[i].TenDT;
+                        list[i].TenDT = list[j].TenDT;
+                        list[j].TenDT = tendt;
+
+                        nhacc = list[i].NhaCC;
+                        list[i].NhaCC = list[j].NhaCC;
+                        list[j].NhaCC = nhacc;
+
+                        type = list[i].Type;
+                        list[i].Type = list[j].Type;
+                        list[j].Type = type;
+
                         price = list[i].Price;
                         list[i].Price = list[j].Price;
                         list[j].Price = price;
+
+                        sale = list[i].Sale;
+                        list[i].Sale = list[j].Sale;
+                        list[j].Sale = sale;
+
+                        quantum = list[i].Quantum;
+                        list[i].Quantum = list[j].Quantum;
+                        list[j].Quantum = sale;
                     }
                     StreamWriter fwrite = File.CreateText(sort); // mở file
                     for (int g = 0; g < n; ++g) // lặp phần tử trong list
@@ -170,5 +192,53 @@ namespace Demo.DataAccessLayer
             }      
         }
 
+        public void SortPriceUp()
+        {
+            List<Mobile> list = GetAllData(); // gán hàm lấy toàn bộ dữ liệu từ tệp là list
+            int n = list.Count;// lấy độ dài của list
+            string tendt, nhacc, type;
+            double price;// biến trung gian so sánh
+            int sale, quantum;
+            for (int i = 0; i < n - 1; i++) // Lặp qua list điện thoại
+            {
+                int min = i; // vị trí đầu tiên
+                for (int j = i + 1; j < n; j++)// lặp lồng để so sánh vị trí sau
+                {
+                    if (list[j].Price > list[min].Price)// Nếu vị trí đầu lớn hơn vị trí sau
+                    {
+                        // Thao tác trung gian đổi vị trí
+                        tendt = list[i].TenDT;
+                        list[i].TenDT = list[j].TenDT;
+                        list[j].TenDT = tendt;
+
+                        nhacc = list[i].NhaCC;
+                        list[i].NhaCC = list[j].NhaCC;
+                        list[j].NhaCC = nhacc;
+
+                        type = list[i].Type;
+                        list[i].Type = list[j].Type;
+                        list[j].Type = type;
+
+                        price = list[i].Price;
+                        list[i].Price = list[j].Price;
+                        list[j].Price = price;
+
+                        sale = list[i].Sale;
+                        list[i].Sale = list[j].Sale;
+                        list[j].Sale = sale;
+
+                        quantum = list[i].Quantum;
+                        list[i].Quantum = list[j].Quantum;
+                        list[j].Quantum = sale;
+                    }
+                    StreamWriter fwrite = File.CreateText(sort); // mở file
+                    for (int g = 0; g < n; ++g) // lặp phần tử trong list
+                        fwrite.WriteLine(list[g].Id + "#" + list[g].TenDT + "#" + list[g].NhaCC + "#" + list[g].Type + "#" + list[g].Price + "#" + list[g].Sale + "#" + list[g].Quantum); // ghi lại thông tin điện thoại đã được sắp xếp
+
+                    fwrite.Close();// đóng file
+
+                }
+            }
+        }
     }
 }

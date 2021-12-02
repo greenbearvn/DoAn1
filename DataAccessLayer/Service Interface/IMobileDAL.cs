@@ -15,6 +15,7 @@ namespace Demo.DataAccessLayer.Services
         void Delete(int id); // Khai báo phương thức xóa thông tin điện thoại với tham số truyền vào là biến ID không trả lại giá trị
         void ThongKe(); // Khai báo phương thức  thống kê điện thoại còn hàng không trả về giá trị 
         void Sort(); // Khai báo phương thức Sắp xếp điện thoại còn hàng không trả về giá trị 
+        void SortPriceUp(); // Khai báo phương thức Sắp xếp điện thoại còn hàng không trả về giá trị 
         void Update(Mobile id); // Khai báo phương thức cập nhật thông tin điện thoại với tham số truyền vào là thuộc tính ID của đối tượng điện thoại không trả lại giá trị
     }
 }

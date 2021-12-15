@@ -1,2 +1,6 @@
 
 1#Xiaomi#Trung Quoc
+2#Apple#America
+3#Samsung#Korea
+4#Oppo#Trung Quoc
+5#Vivo#Trung Quoc

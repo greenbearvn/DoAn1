@@ -9,9 +9,10 @@ namespace Demo.DataAccessLayer.Services
     interface ICustomerDAL
     {
         List<Customer> GetAllData();
-
+        List<Customer> GetSort();
         void Add(Customer cm);
         void Delete(int id);
         void Update(Customer id);
+        void Sort();
     }
 }

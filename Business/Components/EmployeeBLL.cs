@@ -114,5 +114,15 @@ namespace Demo.Business.Components
                 }
             return em;
         }
+
+        public List<Employee> GetSort()
+        {
+            return emDA.GetSort();
+        }
+
+        public void Sort()
+        {
+            emDA.Sort();
+        }
     }
 }

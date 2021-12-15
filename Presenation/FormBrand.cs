@@ -69,18 +69,74 @@ namespace Demo.Presenation
                 Console.WriteLine("║                                                                                 ║");
                 Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════╝");
                 int x = 0, y = 8;
-                int v = HienNCC(brand.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 6);
+                int v = HienNCC(brand.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu. Muốn thoát khi đang nhập nên nhập 0!", 6);
                 Brand br = new Brand();
-                Console.SetCursorPosition(21, 4);
-                do
+
+            n: try
                 {
-                    br.Name = Console.ReadLine();
-                } while (br.Name == "");
-                Console.SetCursorPosition(65, 4);
-                do
+                    do
+                    {
+                        Console.SetCursorPosition(21, 4);
+                        br.Name = Console.ReadLine();
+
+                        if (br.Name != null)
+                        {
+                            break;
+                        }
+                        else if (br.Name == "0")
+                        {
+                            return exit;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 18);
+                        Console.WriteLine(" Tên nhà cung cấp không được để trống. Vui lòng nhập lại!");
+                    } while (true);
+                }
+                catch (Exception)
                 {
-                    br.Diachi = Console.ReadLine();
-                } while (br.Diachi == "");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.SetCursorPosition(0, 18);
+                    Console.WriteLine(" Tên nhà cung cấp nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto n;
+                    }
+                    else
+                        return exit;
+                }
+            a: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(65, 4);
+                        br.Diachi = Console.ReadLine();
+
+                        if (br.Diachi != null)
+                        {
+                            break;
+                        }
+                        else if (br.Diachi == "0")
+                        {
+                            return exit;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 18);
+                        Console.WriteLine(" Địa chỉ nhà cung cấp không được để trống. Vui lòng nhập lại!");
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 18);
+                    Console.WriteLine(" Địa chỉ nhà cung cấp nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto a;
+                    }
+                    else
+                        return exit;
+                }
 
                 Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
@@ -97,10 +153,47 @@ namespace Demo.Presenation
                 Console.Clear();
                 IBrandBLL brand = new BrandBLL();
                 HienNCC(brand.GetAllData(), 0, 0, "                 DANH SACH DIEN NHA CUNG CAP                  ", "Thoat nhap 69:   \n", 20);
+                Console.SetCursorPosition(0, 12);
                 Console.Write("Nhập mã nhà cung cấp muốn xóa: ");
-                int id = int.Parse("0" + Console.ReadLine());
-                if (id == 69) return;
-                else mobile.Delete(id);
+                int id;
+                BrandBLL hd = new BrandBLL();
+            s: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(30, 12);
+                        id = int.Parse("0" + Console.ReadLine()); // Nhập id xóa
+
+                        if (hd.CheckID(id))
+                        {
+                            break;
+                        }
+                        else if (id == 0) return;
+                        else if (id < 0)
+                        {
+                            Console.SetCursorPosition(0, 15);
+                            Console.WriteLine("Mã nhà cung cấp phải lớn hơn 0. Vui lòng nhập lại");
+                        }
+                        else
+                            Console.SetCursorPosition(0, 15);
+                        Console.WriteLine("Mã nhà cung cấp không tồn tại. Vui lòng nhập lại");
+
+                    } while (true);
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.SetCursorPosition(0, 15);
+                    Console.WriteLine(" Mã nhà cung cấp nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto s;
+                    }
+                    else
+                        return;
+                }
+                brand.Delete(id);
             } while (true);
         }
 
@@ -111,11 +204,45 @@ namespace Demo.Presenation
             {
                 Console.Clear();
                 IBrandBLL brand = new BrandBLL();
-                List<Brand> list = brand.TimNCC(new Brand(0, null, null));
+                List<Brand> list = brand.TimNCC(new Brand(0, tenNCC, null));
                 HienNCC(list, 0, 0, "                 DANH SACH NHA CUNG CAP                      ", "Nhan vao Enter de thoat!\n", 30);
                 Console.Write("Nhập tên nhà cung cấp cần tìm: ");
-                tenNCC = Console.ReadLine();
-                if (tenNCC == "") return;
+            n: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(0, 12);
+                        Console.Write("Nhập tên nhà cung cấp :");
+                        Console.SetCursorPosition(22, 12);
+                        tenNCC = Console.ReadLine();
+
+                        if (tenNCC != null)
+                        {
+                            break;
+                        }
+                        else if (tenNCC == "0")
+                        {
+                            return;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 18);
+                        Console.WriteLine(" Tên nhà cung cấp không được để trống. Vui lòng nhập lại!");
+
+                    } while (true);
+                }
+                catch (Exception)
+                {
+                    Console.SetCursorPosition(0, 18);
+                    Console.WriteLine(" Tên nhà cung cấp nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto n;
+                    }
+                    else
+                        return;
+                }
+                if (tenNCC == "0") return;
             } while (true);
         }
 
@@ -129,24 +256,126 @@ namespace Demo.Presenation
             Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║                        CAP NHAT THONG TIN NHA CUNG CAP                         ║");
             Console.WriteLine("║------------------------------------------------------------------------------- ║");
-            Console.WriteLine("║                                                                                ║");
-            Console.WriteLine("║TEN nha cung cap:                              Nha cung cap:                    ║");
+            Console.WriteLine("║Nhập ID:                                                                        ║");
+            Console.WriteLine("║Tên nhà cung cấp:                              Địa chỉ :                        ║");
             Console.WriteLine("║                                                                                ║");
             Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════╝");
             int v = Console.CursorTop;
             
             IBrandBLL brand = new BrandBLL();
             HienNCC(brand.GetAllData(), 0, 10, "                 DANH SACH NHÀ CUNG CẤP                  ", "", 20);
-            Console.SetCursorPosition(12, 3); int id = int.Parse(Console.ReadLine());
+            int id;
+            BrandBLL hdb = new BrandBLL();
+        s: try
+            {
+                do
+                {
+                    Console.SetCursorPosition(12, 3);
+                    id = int.Parse(Console.ReadLine()); // Nhập id xóa
+
+                    if (hdb.CheckID(id))
+                    {
+                        break;
+                    }
+                    else if (id == 0) return;
+                    else if (id < 0)
+                    {
+                        Console.SetCursorPosition(0, 20);
+                        Console.WriteLine("Mã nhà cung cấp lớn hơn 0. Vui lòng nhập lại");
+                    }
+                    else
+                        Console.SetCursorPosition(0, 20);
+                    Console.WriteLine("Mã nhà cung cấp không tồn tại. Vui lòng nhập lại");
+
+                } while (true);
+            }
+            catch (Exception )
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.SetCursorPosition(0, 20);
+                Console.WriteLine(" Mã nhà cung cấp nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                ConsoleKeyInfo check = Console.ReadKey();
+                if (check.Key == ConsoleKey.Enter)
+                {
+                    goto s;
+                }
+                else
+                    return;
+            }
             Brand br = brand.LayNCCtheoID(id);
             if (br != null)
             {
                 
                 Console.SetCursorPosition(21, 4); Console.Write(br.Name);
                 Console.SetCursorPosition(65, 4); Console.Write(br.Diachi);
-                //Nhập lại thông tin mới
-                Console.SetCursorPosition(27, 4); try { Name = Console.ReadLine(); } catch { }
-                Console.SetCursorPosition(75, 4); try { Diachi = Console.ReadLine(); } catch { }
+            //Nhập lại thông tin mới
+
+            n: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(27, 4);
+                        Name = Console.ReadLine();
+
+                        if (Name != null)
+                        {
+                            break;
+                        }
+                        else if (Name == "0")
+                        {
+                            return;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 18);
+                        Console.WriteLine(" Tên nhà cung cấp không được để trống. Vui lòng nhập lại!");
+                    } while (true);
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.SetCursorPosition(0, 18);
+                    Console.WriteLine(" Tên nhà cung cấp nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto n;
+                    }
+                    else
+                        return ;
+                }
+
+            a: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(75, 4);
+                        Diachi = Console.ReadLine();
+
+                        if (Diachi != null)
+                        {
+                            break;
+                        }
+                        else if (Diachi == "0")
+                        {
+                            return ;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 18);
+                        Console.WriteLine(" Địa chỉ nhà cung cấp không được để trống. Vui lòng nhập lại!");
+                    } while (true);
+                }
+                catch (Exception)
+                {
+                    Console.SetCursorPosition(0, 18);
+                    Console.WriteLine(" Địa chỉ nhà cung cấp nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto a;
+                    }
+                    else
+                        return ;
+                }
 
                 Console.SetCursorPosition(0, v);
                 Console.Write("Nhan Esc de thoat, Enter de luu!");

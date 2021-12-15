@@ -32,7 +32,10 @@ namespace Demo.Presenation
                     employee.SuaNV();
                     break;
                 case 5:
-                    mn.Main(); 
+                    employee.Sort();
+                    break;
+                case 6:
+                    mn.Main();
                     break;
 
             }

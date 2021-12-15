@@ -7,10 +7,12 @@ namespace Demo.Entities
     class Mobile
     {
         // Khai báo các thuộc tính của đối tượng Điện thoại
-        private string tenDT, nhaCC, type;
+        private string tenDT;
+        private string nhaCC, type;
         private double price;
         private int id, sale;
         private int quantum;
+        private int mancc;
 
         // public các thuộc tính của đối tượng Điện thoại để có thể sử dụng ở các class khác
         public string TenDT
@@ -78,23 +80,33 @@ namespace Demo.Entities
             }
         }
 
-        
+        public int Mancc {
+            get { return mancc; }
+            set
+            {
+                if (value > 0)
+                    mancc = value;
+            }
+        }
+
+
 
         // Phương thức khởi tạo đối tượng không tham số
         public Mobile() { }
         //Phương thức thiết lập sao chép
         public Mobile(Mobile mb)
         {
-            this.id = mb.id;
-            this.tenDT = string.Copy(mb.tenDT);
-            this.nhaCC = string.Copy(mb.nhaCC);
-            this.type = string.Copy(mb.type);
-            this.price = mb.price;
-            this.sale = mb.sale;
-            this.quantum = mb.quantum;
+            this.Id = mb.id;
+            this.TenDT = string.Copy(mb.tenDT);
+            this.NhaCC = string.Copy(mb.nhaCC);
+            this.Type = string.Copy(mb.type);
+            this.Price = mb.price;
+            this.Sale = mb.sale;
+            this.Quantum = mb.quantum;
+            this.Mancc = mb.mancc;
         }
         // Thiết lập phương thức khởi tạo đối tượng truyền tham số 
-        public Mobile(int id, string tenDT, string nhaCC, string type, double price, int sale, int quantum)
+        public Mobile(int id, string tenDT,int mancc, string nhaCC, string type, double price, int sale, int quantum)
         {
             this.id = id;
             this.tenDT = tenDT;
@@ -103,6 +115,7 @@ namespace Demo.Entities
             this.price = price;
             this.sale = sale;
             this.quantum = quantum;
+            this.mancc = mancc;
         }
     }
 }

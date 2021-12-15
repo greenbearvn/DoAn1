@@ -21,9 +21,19 @@ namespace Demo.Business.Components
             else
                 throw new Exception("Khong ton tai ma nay");// Nếu không có thì văng lỗi
         }
-        
-        
-        
+
+        public bool CheckType(string tendt,string type)// hàm CheckID có thể dùng các class khác với tham số truyền vào là ID và kiểu bool để check xem có mã ko 
+        {
+            bool ok = false;// khai báo biến mặc định bằng false
+
+            foreach (Mobile mobile in mbDA.GetAllData())// Lặp qua danh sách điện thoại trong DAL lấy thuộc tính của phần tử
+                if (mobile.TenDT == Utility.CongCu.ChuanHoaXau(tendt) && mobile.Type == Utility.CongCu.ChuanHoaXau(type))// nếu kiểm tra id đúng 
+                {
+                    ok = true; break;// thì sẽ là true
+                }
+            return ok; // trả ra true nếu có id hoặc false nếu ko có id
+        }
+
         public bool CheckID(int id)// hàm CheckID có thể dùng các class khác với tham số truyền vào là ID và kiểu bool để check xem có mã ko 
         {
             bool ok = false;// khai báo biến mặc định bằng false
@@ -136,6 +146,43 @@ namespace Demo.Business.Components
         public void SortPriceUp()
         {
             mbDA.SortPriceUp();
+        }
+
+        
+
+        public void TimGia(double price)
+        {
+            
+            foreach (Mobile mobile in mbDA.GetAllData()) // lặp qua danh sách ở phần DAl để lấy phần tử
+                if (mobile.Price <= price)// Nếu kiểm tra thuộc tính ID trùng khớp
+                {
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+                    Console.WriteLine(" ║    " + mobile.Id + "  ║   "  + mobile.TenDT + "  ║  " + mobile.Price + "  ║    " + mobile.NhaCC + "   ║     " + mobile.Type + "   ║   " + mobile.Sale + "  ║  " + mobile.Quantum);
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+                }
+                
+        }
+
+        public void TimID(int id)
+        {
+            foreach (Mobile mobile in mbDA.GetAllData()) // lặp qua danh sách ở phần DAl để lấy phần tử
+                if (mobile.Id == id)// Nếu kiểm tra thuộc tính ID trùng khớp
+                {
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+                    Console.WriteLine(" ║    " + mobile.Id + "  ║   " + mobile.TenDT + "  ║  " + mobile.Price + "  ║    " + mobile.NhaCC + "   ║     " + mobile.Type + "   ║   " + mobile.Sale + "  ║  " + mobile.Quantum);
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+                }
+        }
+
+        public void TimType(string type)
+        {
+            foreach (Mobile mobile in mbDA.GetAllData()) // lặp qua danh sách ở phần DAl để lấy phần tử
+                if (mobile.Type == type)// Nếu kiểm tra thuộc tính ID trùng khớp
+                {
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+                    Console.WriteLine(" ║    " + mobile.Id + "  ║   " + mobile.TenDT + "  ║  " + mobile.Price + "  ║    " + mobile.NhaCC + "   ║     " + mobile.Type + "   ║   " + mobile.Sale + "  ║  " + mobile.Quantum);
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+                }
         }
     }
 }

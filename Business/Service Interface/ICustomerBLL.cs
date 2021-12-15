@@ -16,5 +16,8 @@ namespace Demo.Business.Services
 
         void Update(Customer id);
         Customer LayKHtheoID(int id);
+        List<Customer> GetSort();
+
+        void Sort();
     }
 }

@@ -66,37 +66,150 @@ namespace Demo.Presenation
             {
                 ICustomerBLL customer = new CustomerBLL();
                 Console.Clear();
-                Console.WriteLine("╔════════════════════════════════════════════════════════╗");
-                Console.WriteLine("║                NHAP THONG TIN KHACH HANG               ║");
-                Console.WriteLine("║════════════════════════════════════════════════════════║");
-                Console.WriteLine("║                                                        ║");
-                Console.WriteLine("║TEN KH:                    Dia chi:                     ║");
-                Console.WriteLine("║                                                        ║");
-                Console.WriteLine("║Tuoi:                   So Dien Thoai:                  ║");
-                Console.WriteLine("╚════════════════════════════════════════════════════════╝");
-                int x = 0, y = 8;
+                Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("║                NHẬP THÔNG TIN KHÁCH HÀNG                   ║");
+                Console.WriteLine("║════════════════════════════════════════════════════════════║");
+                Console.WriteLine("║                                                            ║");
+                Console.WriteLine("║ Tên khách hàng:                        Tuổi:               ║");
+                Console.WriteLine("║                                                            ║");
+                Console.WriteLine("║ Địa chỉ:                                                   ║");
+                Console.WriteLine("║                                                            ║");
+                Console.WriteLine("║ Số điện thoại:                                             ║");
+                Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
+                int x = 0, y = 10;
                 int v = HienKH(customer.GetAllData(), x, y, "                 DANH SACH DA NHAP                      ", "Nhan Backspace de thoat, Enter de luu!", 4);
                 Customer cm = new Customer();
-                Console.SetCursorPosition(10, 4);
-                do
+
+
+            n: try
                 {
-                    cm.Name = Console.ReadLine();
-                } while (cm.Name == "");
-                Console.SetCursorPosition(37, 4);
-                do
+                    do
+                    {
+                        Console.SetCursorPosition(18, 4);
+                        cm.Name = Console.ReadLine();
+
+                        if (cm.Name == "0")
+                        {
+                            return exit;
+                        }
+
+                        if (cm.Name != null)
+                        {
+                            break;
+                        }
+
+                        else
+                            Console.SetCursorPosition(0, 20);
+                            Console.WriteLine(" Tên khách hàng không được để trống. Vui lòng nhập lại!");
+                    } while (true);
+                }
+                catch (Exception )
                 {
-                    cm.Address = Console.ReadLine();
-                } while (cm.Address == "");
-                Console.SetCursorPosition(10, 6);
-                do
+                    Console.SetCursorPosition(0, 18);
+                    Console.WriteLine(" Tên khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto n;
+                    }
+                    else
+                        return exit;
+                }
+            a: try
                 {
-                    cm.Age = int.Parse(Console.ReadLine());
-                } while (cm.Age < 18 && cm.Age > 100);
-                Console.SetCursorPosition(44, 6);
-                do
+                    do
+                    {
+                        Console.SetCursorPosition(11, 6);
+                        cm.Address = Console.ReadLine();
+
+                        if (cm.Address == "0")
+                        {
+                            return exit;
+                        }
+
+                        if (cm.Address != null)
+                        { break; }
+                        else Console.SetCursorPosition(0, 20); Console.WriteLine("Địa chỉ khách hàng không được trống");
+
+                    } while (true);
+                }
+                catch (Exception )
                 {
-                    cm.Numberphone = Console.ReadLine();
-                } while (cm.Numberphone == "");
+                    Console.SetCursorPosition(0, 20);
+                    Console.WriteLine(" Địa chỉ khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto a;
+                    }
+                    else
+                        return exit;
+                }
+
+            o: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(48, 4);
+                        cm.Age = int.Parse(Console.ReadLine());
+
+                        if (cm.Age >= 16)
+                        {
+                            break;
+                        }
+                        else if (cm.Age == 0) return exit;
+                        else
+                            Console.SetCursorPosition(0, 20);
+                        Console.WriteLine("Tuổi khách hàng phải lớn hơn 15. Vui lòng nhập lại");
+
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 20);
+                    Console.WriteLine(" Tuổi khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto o;
+                    }
+                    else
+                        return exit;
+                }
+
+            x: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(18, 8);
+                        cm.Numberphone = Console.ReadLine().Trim();
+
+                        if (cm.Numberphone.Length <=10)
+                        {
+                            break;
+                        }
+                        else if (cm.Numberphone == "0")
+                        {
+                            return exit;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 20);
+                        Console.WriteLine("Số điện thoại có độ dài nhỏ hơn 11 số. Vui lòng nhập lại");
+
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 20);
+                    Console.WriteLine(" Kiểu số điện thoại không hợp lệ. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto x;
+                    }
+                    else
+                        return exit;
+                }
                 Console.SetCursorPosition(32, v);
                 ConsoleKeyInfo kt = Console.ReadKey();
                 if (kt.Key == ConsoleKey.Backspace) return exit;
@@ -112,10 +225,46 @@ namespace Demo.Presenation
                 Console.Clear();
                 ICustomerBLL customer = new CustomerBLL();
                 HienKH(customer.GetAllData(), 0, 0, "                 DANH SACH HOA DON                  ", "Thoat nhap 69! \n", 20);
+                Console.SetCursorPosition(0, 12);
                 Console.Write("Nhập mã khách hàng muốn xóa: ");
-                int id = int.Parse("0" + Console.ReadLine());
-                if (id == 69) return;
-                else customer.Delete(id);
+                int id;
+                CustomerBLL hd = new CustomerBLL();
+            s: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(30, 12);
+                        id = int.Parse("0" + Console.ReadLine()); // Nhập id xóa
+
+                        if (hd.CheckID(id))
+                        {
+                            break;
+                        }
+                        else if (id == 0) return;
+                        else if (id < 0)
+                        {
+                            Console.SetCursorPosition(0, 15);
+                            Console.WriteLine("Mã khách hàng lớn hơn 0. Vui lòng nhập lại");
+                        }
+                        else
+                            Console.SetCursorPosition(0, 15);
+                        Console.WriteLine("Mã khách hàng không tồn tại. Vui lòng nhập lại");
+
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 15);
+                    Console.WriteLine(" Mã khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto s;
+                    }
+                    else
+                        return;
+                }
+                customer.Delete(id); // ngược lại gọi hàm xóa 
             } while (true);
         }
 
@@ -127,12 +276,65 @@ namespace Demo.Presenation
                 Console.Clear();
                 ICustomerBLL customer = new CustomerBLL();
                 List<Customer> list = customer.TimKH(new Customer(0, tenKH, null, 0, null));
-                HienKH(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhan vao Enter de thoat!\n", 30);
-                Console.Write("Nhập tên khách hàng cần tìm: ");
-                tenKH = Console.ReadLine();
-                if (tenKH == "") return;
+                HienKH(list, 0, 0, "                 DANH SACH KHACH HANG                     ", "Nhấn 0 de thoat!\n", 30);
+            n: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(0, 12);
+                        Console.Write("Nhập tên khách hàng :");
+                        Console.SetCursorPosition(22, 12);
+                        tenKH = Console.ReadLine();
+
+                        if (tenKH != null)
+                        {
+                            break;
+                        }
+                        else if (tenKH == "0")
+                        {
+                            return ;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 18);
+                        Console.WriteLine(" Tên khách hàng không được để trống. Vui lòng nhập lại!");
+
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 18);
+                    Console.WriteLine(" Tên khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto n;
+                    }
+                    else
+                        return ;
+                }
+                if (tenKH == "0") return;
             } while (true);
         }
+        public void Sort()
+        {
+
+            do
+            {
+                Console.Clear(); // Xóa tất cả bắt đầu để hiển thị
+
+                IEmployeeBLL employee = new EmployeeBLL();
+                HienKH(customer.GetAllData(), 0, 0, "                 DANH SACH KHACH HANG                       ", "", 30);
+                // gọi hàm hiển thị đã có ở bên trên và truyền giá trị danh sách lấy tất cả dữ liệu và các giá trị khác
+
+                HienKH(customer.GetSort(), 0, 12, "                 DANH SÁCH KHÁCH HÀNG ĐÃ SẮP XẾP                      ", " Nhấn ESC để thoát \n Nhấn phím Enter để sắp xếp danh sách khách hàng theo bảng chữ cái! \n", 30);
+                ConsoleKeyInfo kt = Console.ReadKey(); // Nhập ký tự
+
+                if (kt.Key == ConsoleKey.Escape) return; // Nếu là phím Esc thì thoát
+                else if (kt.Key == ConsoleKey.Enter) //ngược lại nếu nhận là phím Enter
+                    customer.Sort();  // Gọi hàm Sắp xếp 
+            } while (true);
+        }
+
         public void SuaCS()
         {
             string Name = null;
@@ -142,33 +344,195 @@ namespace Demo.Presenation
             
            
             Console.Clear();
-            Console.WriteLine("╔════════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                NHAP THONG TIN KHACH HANG                       ║");
-            Console.WriteLine("║----------------------------------------------------------------║");
-            Console.WriteLine("║Nhap ID:                                                        ║");
-            Console.WriteLine("║TEN KH:                    Dia chi:                             ║");
-            Console.WriteLine("║                                                                ║");
-            Console.WriteLine("║Tuoi:            So Dien Thoai:                                 ║");
-            Console.WriteLine("╚════════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║                            CẬP NHẬT THÔNG TIN KHÁCH HÀNG                           ║");
+            Console.WriteLine("║------------------------------------------------------------------------------------║");
+            Console.WriteLine("║Nhập ID:                                                                            ║");
+            Console.WriteLine("║Tên KH:                                             Địa chỉ:                        ║");
+            Console.WriteLine("║                                                                                    ║");
+            Console.WriteLine("║Tuổi:                               Số điện thoại:                                  ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
             int v = Console.CursorTop;
             
             ICustomerBLL customer = new CustomerBLL();
             HienKH(customer.GetAllData(), 0, 10, "                 DANH SACH HOA DON                  ", "Thoat nhap 69! \n", 20);
-            Console.SetCursorPosition(12, 4); int id = int.Parse(Console.ReadLine());
+            int id;
+            CustomerBLL hdb = new CustomerBLL();
+        s: try
+            {
+                do
+                {
+                    Console.SetCursorPosition(12, 3);
+                    id = int.Parse(Console.ReadLine()); // Nhập id xóa
+
+                    if (hdb.CheckID(id))
+                    {
+                        break;
+                    }
+                    else if (id == 0) return;
+                    else if (id < 0)
+                    {
+                        Console.SetCursorPosition(0, 20);
+                        Console.WriteLine("Mã khách hàng phải lớn hơn 0. Vui lòng nhập lại");
+                    }
+                    else
+                        Console.SetCursorPosition(0, 20);
+                        Console.WriteLine("Mã khách hàng không tồn tại. Vui lòng nhập lại");
+
+                } while (true);
+            }
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.SetCursorPosition(0, 20);
+                Console.WriteLine(" Mã khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                ConsoleKeyInfo check = Console.ReadKey();
+                if (check.Key == ConsoleKey.Enter)
+                {
+                    goto s;
+                }
+                else
+                    return;
+            }
             Customer cm = customer.LayKHtheoID(id);
             if (cm != null)
             {
                 
-                Console.SetCursorPosition(10, 3); Console.Write(cm.Name);
-                Console.SetCursorPosition(37, 3); Console.Write(cm.Address);
-                Console.SetCursorPosition(8, 5); Console.Write(cm.Age);
-                Console.SetCursorPosition(34, 5); Console.Write(cm.Numberphone);
+                Console.SetCursorPosition(9, 4); Console.Write(cm.Name);
+                Console.SetCursorPosition(62, 4); Console.Write(cm.Address);
+                Console.SetCursorPosition(7, 6); Console.Write(cm.Age);
+                Console.SetCursorPosition(52, 6); Console.Write(cm.Numberphone);
 
-                //Nhập lại thông tin mới
-                Console.SetCursorPosition(15, 3); try { Name = Console.ReadLine(); } catch { }
-                Console.SetCursorPosition(46, 3); try { Address = Console.ReadLine(); } catch { }
-                Console.SetCursorPosition(11, 5); try { Age = int.Parse(Console.ReadLine()); } catch { }
-                Console.SetCursorPosition(45, 5); try { Numberphone = Console.ReadLine(); } catch { }
+            //Nhập lại thông tin mới
+
+            n: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(25, 4);
+                        Name = Console.ReadLine();
+
+                        if (Name != null)
+                        {
+                            break;
+                        }
+                        else if (Name == "0")
+                        {
+                            return;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 20);
+                            Console.WriteLine(" Tên khách hàng không được để trống. Vui lòng nhập lại!");
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 20);
+                    Console.WriteLine(" Tên khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto n;
+                    }
+                    else
+                        return ;
+                }
+
+            a: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(74, 4);
+                        Address = Console.ReadLine();
+
+                        if (Address != null)
+                        { break; }
+                        else if (Address == "0")
+                        {
+                            return ;
+                        }
+                        else Console.SetCursorPosition(0, 20); Console.WriteLine("Địa chỉ khách hàng không được trống. Vui lòng nhập lại!");
+
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 20);
+                    Console.WriteLine(" Địa chỉ khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto a;
+                    }
+                    else
+                        return ;
+                }
+
+
+            o: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(10, 6); 
+                        Age = int.Parse(Console.ReadLine());
+
+                        if (Age >= 16)
+                        {
+                            break;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 20);
+                            Console.WriteLine("Tuổi khách hàng phải lớn hơn 15. Vui lòng nhập lại");
+
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 20);
+                    Console.WriteLine(" Tuổi khách hàng nhập không đúng định dạng. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto o;
+                    }
+                    else
+                        return;
+                }
+
+            x: try
+                {
+                    do
+                    {
+                        Console.SetCursorPosition(66, 6);
+                        Numberphone = Console.ReadLine().Trim();
+
+                        if (Numberphone.Length <= 10)
+                        {
+                            break;
+                        }
+                        else if (cm.Numberphone == "0")
+                        {
+                            return ;
+                        }
+                        else
+                            Console.SetCursorPosition(0, 20);
+                            Console.WriteLine("Số điện thoại có độ dài nhỏ hơn 11 số. Vui lòng nhập lại");
+
+                    } while (true);
+                }
+                catch (Exception )
+                {
+                    Console.SetCursorPosition(0, 20);
+                    Console.WriteLine(" Kiểu số điện thoại không hợp lệ. \n Bấm Enter để tiến hành nhập lại");
+                    ConsoleKeyInfo check = Console.ReadKey();
+                    if (check.Key == ConsoleKey.Enter)
+                    {
+                        goto x;
+                    }
+                    else
+                        return ;
+                }
+
                 Console.SetCursorPosition(0, v);//Đưa con trỏ tới vị trí cuối cùng của danh sách được hiện thị ở trên dựa vào v
                 Console.Write("Nhan Esc de thoat, Enter de luu!");
                 //Nếu có dữ liệu có thay đổi thị cập nhật lại
@@ -176,9 +540,7 @@ namespace Demo.Presenation
                 if (cm.Address != Address && Address != null) cm.Address = Address;
                 if (cm.Numberphone != Numberphone && Numberphone != null) cm.Numberphone = Numberphone;
                 if (cm.Age != Age && Age != 0) cm.Age = Age;
-                
-                
-                
+
                 Console.SetCursorPosition(33, Console.CursorTop);
                 ConsoleKeyInfo kt = Console.ReadKey();
                 if (kt.Key == ConsoleKey.Escape) return;

@@ -24,7 +24,7 @@ namespace Demo
                             " ╚═════════════════════════════"
                         };
             Demo.Presenation.MenuQL mndemo = new Demo.Presenation.MenuQL(mn);
-            mndemo.HienMeNu(35, 10, ConsoleColor.Black, ConsoleColor.Green, ConsoleColor.DarkBlue, ConsoleColor.White);
+            mndemo.HienMeNu(35, 10, ConsoleColor.Black, ConsoleColor.Cyan, ConsoleColor.DarkBlue, ConsoleColor.White);
         }
 
         internal void Main()
@@ -43,7 +43,7 @@ namespace Demo
                             " ╚═════════════════════════════"
                         };
             Demo.Presenation.MenuQL mndemo = new Demo.Presenation.MenuQL(mn);
-            mndemo.HienMeNu(35, 10, ConsoleColor.Black, ConsoleColor.Green, ConsoleColor.DarkBlue, ConsoleColor.White);
+            mndemo.HienMeNu(35, 10, ConsoleColor.Black, ConsoleColor.Cyan, ConsoleColor.DarkBlue, ConsoleColor.White);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Demo.DataAccessLayer
                 {
                     s = Demo.Utility.CongCu.CatXau(s); // công cụ chuẩn hóa xâu
                     string[] a = s.Split('#');// tạo mảng a đọc file loại bỏ ký tự "#"
-                    list.Add(new Mobile(int.Parse(a[0]), a[1], a[2], a[3], double.Parse(a[4]), int.Parse(a[5]), int.Parse(a[6])));// hiển thị liệt kê các thuộc tính của điện thoại
+                    list.Add(new Mobile(int.Parse(a[0]), a[1],int.Parse(a[2]), a[3], a[4], double.Parse(a[5]), int.Parse(a[6]), int.Parse(a[7])));// hiển thị liệt kê các thuộc tính của điện thoại
                 }
                 s = fread.ReadLine();
             }
@@ -45,7 +45,7 @@ namespace Demo.DataAccessLayer
                 {
                     s = Demo.Utility.CongCu.CatXau(s);
                     string[] a = s.Split('#');
-                    list.Add(new Mobile(int.Parse(a[0]), a[1], a[2], a[3], double.Parse(a[4]), int.Parse(a[5]), int.Parse(a[6])));
+                    list.Add(new Mobile(int.Parse(a[0]), a[1], int.Parse(a[2]), a[3], a[4], double.Parse(a[5]), int.Parse(a[6]), int.Parse(a[7])));
                 }
                 s = fread.ReadLine();
             }
@@ -63,7 +63,7 @@ namespace Demo.DataAccessLayer
                 {
                     s = Demo.Utility.CongCu.CatXau(s);
                     string[] a = s.Split('#');
-                    list.Add(new Mobile(int.Parse(a[0]), a[1], a[2], a[3], double.Parse(a[4]), int.Parse(a[5]), int.Parse(a[6])));
+                    list.Add(new Mobile(int.Parse(a[0]), a[1], int.Parse(a[2]), a[3], a[4], double.Parse(a[5]), int.Parse(a[6]), int.Parse(a[7])));
                 }
                 s = fread.ReadLine();
             }
@@ -90,14 +90,14 @@ namespace Demo.DataAccessLayer
             }
         }
         
-        public void Add(Mobile mb) // khai báo hàm Add với phương thức public để có thể sử dụng hàm thêm này ở các class khác và kiểu void ko return giá trị
+        public virtual void Add(Mobile mb) // khai báo hàm Add với phương thức public để có thể sử dụng hàm thêm này ở các class khác và kiểu void ko return giá trị
         {
             int id = GetID()+1; // lấy ID của hàm GetID để dùng cho việc đánh ID tự động thêm 1 khi thêm thông tin điện thoại mới vào
 
             StreamWriter fwrite = File.AppendText(txtfile); // thêm vào file
 
             fwrite.WriteLine();
-            fwrite.Write(id + "#" + mb.TenDT + "#" + mb.NhaCC + "#" + mb.Type + "#" + mb.Price + "#" + mb.Sale + "#" + mb.Quantum);// ghi thông tin điện thoại vào tệp cách nhau bởi dấu "#"
+            fwrite.Write(id + "#" + mb.TenDT + "#" + mb.Mancc + "#" + mb.NhaCC + "#" + mb.Type + "#" + mb.Price + "#" + mb.Sale + "#" + mb.Quantum);// ghi thông tin điện thoại vào tệp cách nhau bởi dấu "#"
 
             fwrite.Close();// đóng file
         }
@@ -110,7 +110,7 @@ namespace Demo.DataAccessLayer
 
             foreach(Mobile mb in list) // lặp qua list
                 if (mb.Id != id) // nếu id của đối tượng điện thoại khác id nhập
-                    fwrite.WriteLine(mb.Id + "#" + mb.TenDT + "#" + mb.NhaCC + "#" + mb.Type + "#" + mb.Price + "#" + mb.Sale + "#" + mb.Quantum); // ghi các id khác loại bỏ id đã nhập
+                    fwrite.WriteLine(mb.Id + "#" + mb.TenDT + "#" + mb.Mancc + "#" + mb.NhaCC + "#" + mb.Type + "#" + mb.Price + "#" + mb.Sale + "#" + mb.Quantum); // ghi các id khác loại bỏ id đã nhập
 
             fwrite.Close(); // đóng file
         }
@@ -124,7 +124,7 @@ namespace Demo.DataAccessLayer
 
             foreach (Mobile mb in list)// lặp qua list
                 if (mb.Quantum >0) // Nếu số lượng > 0
-                    fwrite.WriteLine(mb.Id + "#" + mb.TenDT + "#" + mb.NhaCC + "#" + mb.Type + "#" + mb.Price + "#" + mb.Sale + "#" + mb.Quantum);// ghi vào file
+                    fwrite.WriteLine(mb.Id + "#" + mb.TenDT + "#" + mb.Mancc + "#" + mb.NhaCC + "#" + mb.Type + "#" + mb.Price + "#" + mb.Sale + "#" + mb.Quantum);// ghi vào file
             fwrite.Close();// đóng file
         }
 
@@ -138,7 +138,7 @@ namespace Demo.DataAccessLayer
 
             foreach (Mobile mb in list)// Lặp các phần tử trong list
 
-                fwrite.WriteLine(mb.Id + "#" + mb.TenDT + "#" + mb.NhaCC + "#" + mb.Type + "#" + mb.Price + "#" + mb.Sale + "#" + mb.Quantum);// Cập nhật ghi đè lên thông tin cũ
+                fwrite.WriteLine(mb.Id + "#" + mb.TenDT + "#" + mb.Mancc + "#"  + mb.NhaCC + "#" + mb.Type + "#" + mb.Price + "#" + mb.Sale + "#" + mb.Quantum);// Cập nhật ghi đè lên thông tin cũ
 
             fwrite.Close();// đóng file
         }
@@ -149,7 +149,7 @@ namespace Demo.DataAccessLayer
             int n = list.Count;// lấy độ dài của list
             string tendt, nhacc, type;
             double price;// biến trung gian so sánh
-            int sale, quantum;
+            int sale, quantum,mancc;
             for (int i = 0; i < n-1; i++) // Lặp qua list điện thoại
             {
                 int min = i; // vị trí đầu tiên
@@ -165,6 +165,10 @@ namespace Demo.DataAccessLayer
                         nhacc = list[i].NhaCC;
                         list[i].NhaCC = list[j].NhaCC;
                         list[j].NhaCC = nhacc;
+
+                        mancc = list[i].Mancc;
+                        list[i].Mancc = list[j].Mancc;
+                        list[j].Mancc = mancc;
 
                         type = list[i].Type;
                         list[i].Type = list[j].Type;

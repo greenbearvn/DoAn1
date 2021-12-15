@@ -16,5 +16,8 @@ namespace Demo.Business.Services
 
         void Update(Employee id);
         Employee LayNVtheoID(int id);
+        List<Employee> GetSort();
+
+        void Sort();
     }
 }

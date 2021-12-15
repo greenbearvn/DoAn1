@@ -32,7 +32,10 @@ namespace Demo.Presenation
                     customer.SuaCS();
                     break;
                 case 5:
-                    mn.Main(); 
+                    customer.Sort();
+                    break;
+                case 6:
+                    mn.Main();
                     break;
 
             }

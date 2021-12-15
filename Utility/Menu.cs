@@ -71,7 +71,7 @@ namespace Demo.Utility
                         Writexy(x, y + chon, chon, maunen_s, mauchu_s);                        
                         break;
                 }
-                Writexy(x, y + mn.Length + 1, ":V" );
+                Writexy(x, y + mn.Length + 1, "UwU" );
             } while (true);
         }
         public abstract void ThucHien(int vitri);      

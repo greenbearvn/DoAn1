@@ -12,7 +12,10 @@ namespace Demo.Business.Components
     {
         private IHoaDonDAL hdDA = new HoaDonDAL(); // Tạo 1 đối tượng để dùng các chức năng từ phần HoaDonDAL
         //Thực thi các yêu cầu
+        private IMobileDAL mbDA = new MobileDAL();
 
+        private ICustomerDAL cmDA = new CustomerDAL();
+        private IEmployeeDAL emDA = new EmployeeDAL();
 
         public void Delete(int id)// hàm xóa xử lí check sd phương thức public để dùng tại các lớp khác với giá trị đầu vào là id nhập void trả về ko tham số
         {
@@ -131,6 +134,104 @@ namespace Demo.Business.Components
                     tong += hd.Total; 
                 }
             return tong;
+        }
+
+
+        public void Sort()
+        {
+            hdDA.Sort();
+        }
+
+        List<HoaDon> IHoaDonBLL.GetSort()
+        {
+            return hdDA.GetSort();
+        }
+
+
+        string IHoaDonBLL.GetMobileName(HoaDon hd)
+        {
+            string kq = "";
+
+            List<Mobile> list = mbDA.GetAllData();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Id == hd.MaDT)
+                {
+                    kq = list[i].TenDT;
+                }
+            }
+            return kq;
+        }
+
+        string IHoaDonBLL.GetCustomerName(HoaDon hd)
+        {
+            string kq = "";
+
+            List<Customer> list = cmDA.GetAllData();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Id == hd.Makh)
+                {
+                    kq = list[i].Name;
+                }
+            }
+            return kq;
+        }
+
+        string IHoaDonBLL.GetEmployeeName(HoaDon hd)
+        {
+            string kq = "";
+
+            List<Employee> list = emDA.GetAllData();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Id == hd.Manv)
+                {
+                    kq = list[i].Name;
+                }
+            }
+            return kq;
+        }
+
+        string IHoaDonBLL.GetAddressCustomer(HoaDon hd)
+        {
+            string kq = "";
+
+            List<Customer> list = cmDA.GetAllData();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Id == hd.Makh)
+                {
+                    kq = list[i].Address;
+                }
+            }
+            return kq;
+        }
+
+        double IHoaDonBLL.GetPrice(HoaDon hd)
+        {
+            double kq = 0;
+
+            List<Mobile> list = mbDA.GetAllData();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Id == hd.MaDT)
+                {
+                    kq = list[i].Price;
+                }
+            }
+            return kq;
+        }
+
+        public void TimID(int id)
+        {
+            foreach (HoaDon hoadon in hdDA.GetAllData()) // lặp qua danh sách ở phần DAl để lấy phần tử
+                if (hoadon.Id == id)// Nếu kiểm tra thuộc tính ID trùng khớp
+                {
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+                    Console.WriteLine(" ║    " + hoadon.Id + "  ║   " + hoadon.TenDT + "  ║  " + hoadon.HoTenKH + "  ║    " + hoadon.Price + "   ║     " + hoadon.Sale + "   ║   " + hoadon.Quantum + "  ║  " + hoadon.Total);
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
+                }
         }
     }
 }

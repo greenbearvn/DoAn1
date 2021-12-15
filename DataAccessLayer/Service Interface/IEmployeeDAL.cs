@@ -9,9 +9,10 @@ namespace Demo.DataAccessLayer.Services
     interface IEmployeeDAL
     {
         List<Employee> GetAllData();
-
+        List<Employee> GetSort();
         void Add(Employee em);
         void Delete(int id);
         void Update(Employee id);
+        void Sort();
     }
 }

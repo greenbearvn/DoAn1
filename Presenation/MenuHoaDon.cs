@@ -20,21 +20,26 @@ namespace Demo.Presenation
                     hoadon.NhapHD(); // Gọi hàm Nhập 
                     break;
                 case 1:
-                    hoadon.Hien(); // gọi hàm hiển thị
+                    hoadon.XuatBill(); // Gọi hàm Nhập 
                     break;
                 case 2:
-                    hoadon.TimHD(); // gọi hàm tìm
+                    hoadon.Hien(); // gọi hàm hiển thị
                     break;
                 case 3:
-                    hoadon.XoaHD(); // gọi hàm xóa
+                    hoadon.TimID(); // gọi hàm tìm
                     break;
                 case 4:
-                    hoadon.SuaHD(); // gọi hàm sửa thông tin
+                    hoadon.XoaHD(); // gọi hàm xóa
                     break;
                 case 5:
+                   hoadon.SuaHD(); // gọi hàm sửa thông tin
+                    break;
+                case 6:
+                    hoadon.Sort(); // gọi hàm Sắp xếp
+                    break;
+                case 7:
                     mn.Main(); // gọi hàm Sắp xếp
                     break;
-
             }
         }
     }

@@ -6,8 +6,8 @@ namespace Demo.Entities
 {
     class Person
     {
-        private string name, address, numberphone;
-        private int id, age;
+        protected string name, address, numberphone;
+        protected int id, age;
 
         public int Id
         {

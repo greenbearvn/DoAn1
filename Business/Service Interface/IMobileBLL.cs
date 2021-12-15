@@ -14,6 +14,10 @@ namespace Demo.Business.Services
         void Add(Mobile mb); // Khai báo phương thức thêm thông tin điện thoại với tham số truyền vào là đối tượng điện thoại
         void Delete(int id);// Khai báo phương thức xóa thông tin điện thoại với tham số truyền vào là biến ID không trả lại giá trị
         List<Mobile> Timdt(Mobile mb); // Khai báo phương thức tìm thông tin điện thoại với tham số truyền vào là đối tượng điện thoại
+        bool CheckType(string tendt, string type);
+        void TimID(int id);
+        void TimType(string type);
+        void TimGia(double price);
         void ThongKe();// Khai báo phương thức  thống kê điện thoại còn hàng không trả về giá trị
 
         void Update(Mobile id);// Khai báo phương thức cập nhật thông tin điện thoại với tham số truyền vào là thuộc tính ID của đối tượng điện thoại không trả lại giá trị

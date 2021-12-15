@@ -1,7 +1,2 @@
-1#Iphone 13#Apple#1tb#13999999#6#1
-2#Find X3 Pro#Oppo#256gb#44999999#11#0
-3#Galaxy Z Fold 3#Samsung#512gb#22000000#0#7
-4#Iphone 13#Apple#1tb#44999999#6#1
-5#Oppo Reno 6#Oppo#256gb#28999999#20#9
 
-
+1#Galaxy Z Flip 3#1#Xiaomi#512gb#3999000#10#2

@@ -113,5 +113,15 @@ namespace Demo.Business.Components
                 }
             return cm;
         }
+
+        public List<Customer> GetSort()
+        {
+            return cmDA.GetSort();
+        }
+
+        public void Sort()
+        {
+            cmDA.Sort();
+        }
     }
 }
